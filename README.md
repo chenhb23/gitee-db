@@ -10,7 +10,7 @@
 
 ## 用法
 
-安装: `yarn add gitee-db`
+安装: `yarn add https://github.com/chenhb23/gitee-db.git`
 
 使用前先用 `registry` 注册，`registry` 信息获取途径：
 

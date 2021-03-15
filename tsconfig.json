@@ -14,7 +14,8 @@
     "skipLibCheck": true,
     "moduleResolution": "Node",
     "forceConsistentCasingInFileNames": true,
-    "declaration": true
+    "declaration": true,
+    "outDir": "./lib"
   },
   "ts-node": {
     "transpileOnly": true
