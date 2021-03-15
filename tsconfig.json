@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "commonjs",
+    "lib": [
+      "DOM",
+      "ESNext"
+    ],
+    "strict": true,
+    "noImplicitAny": false,
+    "strictNullChecks": false,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "moduleResolution": "Node",
+    "forceConsistentCasingInFileNames": true,
+    "declaration": true
+  },
+  "ts-node": {
+    "transpileOnly": true
+  },
+  "include": ["src"],
+  "exclude": [
+    "__test__",
+    "scripts"
+  ]
+}

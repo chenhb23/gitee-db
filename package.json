@@ -1,0 +1,26 @@
+{
+  "name": "gitee-db",
+  "version": "0.0.1",
+  "description": "白嫖数据库\uD83D\uDE0F，实现了增删改查功能。有了它，就可让静态页面拥有动态交互功能，从此免去服务器的费用。使用码云的 OpenAPI 实现，api 可跨域，响应速度一级棒\uD83D\uDE0F。使用 ts 编写，有完整的接口类型提示，enjoy it !!!",
+  "main": "src/index.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "parcel __test__/index.html",
+    "gen-api": "ts-node scripts/gen-api.ts"
+  },
+  "keywords": [
+    "gitee",
+    "database",
+    "free"
+  ],
+  "author": "chenhb23 <chenhongbo_1994@163.com>",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.21.1"
+  },
+  "devDependencies": {
+    "parcel": "^2.0.0-beta.1",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.3"
+  }
+}
