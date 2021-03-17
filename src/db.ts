@@ -21,11 +21,6 @@ interface DTO<T> {
   updated_at: string
 }
 
-interface QueryParams {
-  id?: string
-  per_page?: number // 每页的数量, 最大为 100
-}
-
 function generateDTO<T = any>(data: ApiResponse<typeof getReposOwnerRepoIssuesCommentsId>): DTO<T> {
   return {
     id: data.id,
@@ -126,64 +121,48 @@ export class Table<TB = any> {
    * 查询一套记录
    * 返回第一条数据，如果传入 id，则直接查详情
    */
-  async findOne<T = TB>(id?: string, options?: QueryParams): Promise<DTO<T>>
-  async findOne<T = TB>(options?: QueryParams, options2?: QueryParams): Promise<DTO<T>>
-  async findOne<T = TB>(id?: any, options: QueryParams = {}): Promise<DTO<T>> {
-    if (typeof id === 'object') {
-      options = Object.assign({}, options, id)
-    } else if (typeof id === 'string') {
-      options = Object.assign({}, options, {id})
-    }
-    if (options.id) {
-      return getReposOwnerRepoIssuesCommentsId({id: Number(options.id)}).then(value =>
+  async findOne<T = TB>(id?: string): Promise<DTO<T>> {
+    if (id) {
+      return getReposOwnerRepoIssuesCommentsId({id: Number(id)}).then(value =>
         value.data ? generateDTO(value.data) : null
       )
-    } else {
-      let page = 1
-      while (true) {
-        const {data} = await getReposOwnerRepoIssuesNumberComments({
-          number: this.number,
-          page: page++,
-          per_page: options.per_page,
-        })
-
-        if (!data.length) return null
-
-        const dtos = data.map(generateDTO)
-        if (!this.filter) return dtos[0]
-
-        for (const dto of dtos) {
-          if (this.filter(dto)) {
-            return dto
-          }
-        }
-
-        if (data.length < options.per_page) break
-      }
     }
+
+    return this.findMany<T>({limit: 1}).then(value => value?.[0])
   }
 
   /**
    * 查询多条数据
+   * 如果 findMany 和 where 一起使用，只有 limit 起作用，如果想用 where 查询第二页，可以将第一页的 id 全部过滤掉
+   ```ts
+   const data = [...] // 已有数据
+   const dto = await table
+     .where(value => data.every(item => item.id !== value.id))
+     .findMany({limit: 20})
+   ```
    */
-  async findMany<T = TB>({
-    page = 1,
-    per_page = 20,
-    ...rest
-  }: {
-    page?: number // 当前的页码
-    per_page?: number // 每页的数量, 默认20，最大为 100
-    maxPage?: number
-  } = {}): Promise<DTO<T>[]> {
+  async findMany<T = TB>(options: {limit?: number /*限制最多查询的条数*/} = {}): Promise<DTO<T>[]> {
+    let page = 1
+    const hasFilter = typeof this.filter === 'function'
+    // per_page 与 limit 相关，有 filter 则 per_page 翻倍，最小 10，最大 100，默认 20
+    let per_page = Math.max(10, options.limit ?? 20)
+    if (hasFilter) {
+      per_page = Math.min(100, per_page * 2)
+    }
+
     const list: DTO<T>[] = []
     while (true) {
       const {data} = await getReposOwnerRepoIssuesNumberComments({number: this.number, page: page++, per_page})
 
       if (!data.length) break
-      const dtos = data.map(generateDTO)
-      list.push(...(this.filter ? dtos.filter(this.filter) : dtos))
-
-      if (data.length < per_page || (rest.maxPage > 0 && page > rest.maxPage)) break
+      for (const item of data) {
+        const dto = generateDTO(item)
+        if (!hasFilter || this.filter(dto)) {
+          list.push(dto)
+          if (options.limit > 0 && list.length >= options.limit) return list
+        }
+      }
+      if (data.length < per_page) break
     }
 
     return list
