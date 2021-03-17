@@ -13,9 +13,9 @@ import {auth} from './registry'
 type ApiResponse<T extends (...args: any[]) => any> = ReturnType<T> extends AxiosPromise<infer P> ? P : T
 
 interface DTO<T> {
-  id: string
+  id: string // 相当于 row id
   body: T
-  number?: string
+  number?: string // 相当于 table id
   title?: string
   created_at: string
   updated_at: string
@@ -128,12 +128,12 @@ export class Table<TB = any> {
       )
     }
 
-    return this.findMany<T>({limit: 1}).then(value => value?.[0])
+    return this.findMany<T>({limit: 1}).then(value => value.list?.[0])
   }
 
   /**
    * 查询多条数据
-   * 如果 findMany 和 where 一起使用，只有 limit 起作用，如果想用 where 查询第二页，可以将第一页的 id 全部过滤掉
+   * 如果想用 where 查询第二页，可以将第一页的 id 全部过滤掉
    ```ts
    const data = [...] // 已有数据
    const dto = await table
@@ -141,31 +141,35 @@ export class Table<TB = any> {
      .findMany({limit: 20})
    ```
    */
-  async findMany<T = TB>(options: {limit?: number /*限制最多查询的条数*/} = {}): Promise<DTO<T>[]> {
-    let page = 1
+  async findMany<T = TB>(
+    options: {limit?: number /*限制最多查询的条数*/; startPage?: number} = {}
+  ): Promise<{cur_page: number; list: DTO<T>[]}> {
+    // todo: 优化：返回结果带上当前页，可传入起始页接着查
+    let page = (options.startPage || 1) - 1
+
     const hasFilter = typeof this.filter === 'function'
-    // per_page 与 limit 相关，有 filter 则 per_page 翻倍，最小 10，最大 100，默认 20
-    let per_page = Math.max(10, options.limit ?? 20)
+    // per_page 与 limit 相关，有 filter 则 per_page 翻倍，最小 20，最大 100，默认 30
+    let per_page = Math.max(20, options.limit ?? 30)
     if (hasFilter) {
       per_page = Math.min(100, per_page * 2)
     }
 
     const list: DTO<T>[] = []
     while (true) {
-      const {data} = await getReposOwnerRepoIssuesNumberComments({number: this.number, page: page++, per_page})
+      const {data} = await getReposOwnerRepoIssuesNumberComments({number: this.number, page: ++page, per_page})
 
       if (!data.length) break
       for (const item of data) {
         const dto = generateDTO(item)
         if (!hasFilter || this.filter(dto)) {
           list.push(dto)
-          if (options.limit > 0 && list.length >= options.limit) return list
+          if (options.limit > 0 && list.length >= options.limit) return {cur_page: page, list}
         }
       }
       if (data.length < per_page) break
     }
 
-    return list
+    return {cur_page: page, list}
   }
 
   /**

@@ -51,10 +51,10 @@ registry({
 
 ## Api
 
-- `findOne<T>(id?: string, options?: QueryParams): Promise<DTO<T>>`
+- `findOne<T>(id?: string): Promise<DTO<T>>`
 
 
-- `findMany<T>(options?: {page?: number; per_page?: number; maxPage?: number}): Promise<DTO<T>[]>`
+- `findMany<T>(options?: {limit?: number; startPage?: number}): Promise<{cur_page: number; list: DTO<T>[]}>`
 
 
 - `insert<T>(body: T): Promise<DTO<T>>`
@@ -64,3 +64,6 @@ registry({
 
 
 - `delete(id: string): AxiosPromise<any>;`
+
+
+- `where<T>(filter: (value: DTO<T>) => boolean)`。where 之后只能使用 findOne 和 findMany
