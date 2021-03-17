@@ -2939,1332 +2939,1306 @@ interface GetEmojis {
 }
 
 // 获取所有分支
-export function getReposOwnerRepoBranches(params: GetReposOwnerRepoBranches): AxiosPromise<Branch[]> {
-  return f('/repos/{owner}/{repo}/branches', params)
+export function getReposOwnerRepoBranches(p: GetReposOwnerRepoBranches): AxiosPromise<Branch[]> {
+  return f('/repos/{owner}/{repo}/branches', p)
 }
 
 // 创建分支
-export function postReposOwnerRepoBranches(params: PostReposOwnerRepoBranches): AxiosPromise<CompleteBranch> {
-  return f('/repos/{owner}/{repo}/branches', params, 'post')
+export function postReposOwnerRepoBranches(p: PostReposOwnerRepoBranches): AxiosPromise<CompleteBranch> {
+  return f('/repos/{owner}/{repo}/branches', p, 'post')
 }
 
 // 获取单个分支
-export function getReposOwnerRepoBranchesBranch(params: GetReposOwnerRepoBranchesBranch): AxiosPromise<CompleteBranch> {
-  return f('/repos/{owner}/{repo}/branches/{branch}', params)
+export function getReposOwnerRepoBranchesBranch(p: GetReposOwnerRepoBranchesBranch): AxiosPromise<CompleteBranch> {
+  return f('/repos/{owner}/{repo}/branches/{branch}', p)
 }
 
 // 设置分支保护
 export function putReposOwnerRepoBranchesBranchProtection(
-  params: PutReposOwnerRepoBranchesBranchProtection
+  p: PutReposOwnerRepoBranchesBranchProtection
 ): AxiosPromise<CompleteBranch> {
-  return f('/repos/{owner}/{repo}/branches/{branch}/protection', params, 'put')
+  return f('/repos/{owner}/{repo}/branches/{branch}/protection', p, 'put')
 }
 
 // 取消保护分支的设置
-export function deleteReposOwnerRepoBranchesBranchProtection(params: DeleteReposOwnerRepoBranchesBranchProtection) {
-  return f('/repos/{owner}/{repo}/branches/{branch}/protection', params, 'delete')
+export function deleteReposOwnerRepoBranchesBranchProtection(p: DeleteReposOwnerRepoBranchesBranchProtection) {
+  return f('/repos/{owner}/{repo}/branches/{branch}/protection', p, 'delete')
 }
 
 // 分支保护策略设置
 export function putReposOwnerRepoBranchesWildcardSetting(
-  params: PutReposOwnerRepoBranchesWildcardSetting
+  p: PutReposOwnerRepoBranchesWildcardSetting
 ): AxiosPromise<ProtectionRule> {
-  return f('/repos/{owner}/{repo}/branches/{wildcard}/setting', params, 'put')
+  return f('/repos/{owner}/{repo}/branches/{wildcard}/setting', p, 'put')
 }
 
 // 删除仓库保护分支策略
 export function deleteReposOwnerRepoBranchesWildcardSetting(
-  params: DeleteReposOwnerRepoBranchesWildcardSetting
+  p: DeleteReposOwnerRepoBranchesWildcardSetting
 ): AxiosPromise<ProtectionRule> {
-  return f('/repos/{owner}/{repo}/branches/{wildcard}/setting', params, 'delete')
+  return f('/repos/{owner}/{repo}/branches/{wildcard}/setting', p, 'delete')
 }
 
 // 新建仓库保护分支策略
 export function putReposOwnerRepoBranchesSettingNew(
-  params: PutReposOwnerRepoBranchesSettingNew
+  p: PutReposOwnerRepoBranchesSettingNew
 ): AxiosPromise<ProtectionRule> {
-  return f('/repos/{owner}/{repo}/branches/setting/new', params, 'put')
+  return f('/repos/{owner}/{repo}/branches/setting/new', p, 'put')
 }
 
 // 仓库的所有提交
-export function getReposOwnerRepoCommits(params: GetReposOwnerRepoCommits): AxiosPromise<RepoCommit[]> {
-  return f('/repos/{owner}/{repo}/commits', params)
+export function getReposOwnerRepoCommits(p: GetReposOwnerRepoCommits): AxiosPromise<RepoCommit[]> {
+  return f('/repos/{owner}/{repo}/commits', p)
 }
 
 // 仓库的某个提交
-export function getReposOwnerRepoCommitsSha(params: GetReposOwnerRepoCommitsSha): AxiosPromise<RepoCommit> {
-  return f('/repos/{owner}/{repo}/commits/{sha}', params)
+export function getReposOwnerRepoCommitsSha(p: GetReposOwnerRepoCommitsSha): AxiosPromise<RepoCommit> {
+  return f('/repos/{owner}/{repo}/commits/{sha}', p)
 }
 
 // 两个Commits之间对比的版本差异
-export function getReposOwnerRepoCompareBaseHead(params: GetReposOwnerRepoCompareBaseHead): AxiosPromise<Compare> {
-  return f('/repos/{owner}/{repo}/compare/{base}...{head}', params)
+export function getReposOwnerRepoCompareBaseHead(p: GetReposOwnerRepoCompareBaseHead): AxiosPromise<Compare> {
+  return f('/repos/{owner}/{repo}/compare/{base}...{head}', p)
 }
 
 // 获取仓库已部署的公钥
-export function getReposOwnerRepoKeys(params: GetReposOwnerRepoKeys): AxiosPromise<SSHKey[]> {
-  return f('/repos/{owner}/{repo}/keys', params)
+export function getReposOwnerRepoKeys(p: GetReposOwnerRepoKeys): AxiosPromise<SSHKey[]> {
+  return f('/repos/{owner}/{repo}/keys', p)
 }
 
 // 为仓库添加公钥
-export function postReposOwnerRepoKeys(params: PostReposOwnerRepoKeys): AxiosPromise<SSHKey> {
-  return f('/repos/{owner}/{repo}/keys', params, 'post')
+export function postReposOwnerRepoKeys(p: PostReposOwnerRepoKeys): AxiosPromise<SSHKey> {
+  return f('/repos/{owner}/{repo}/keys', p, 'post')
 }
 
 // 获取仓库可部署的公钥
-export function getReposOwnerRepoKeysAvailable(params: GetReposOwnerRepoKeysAvailable): AxiosPromise<SSHKeyBasic[]> {
-  return f('/repos/{owner}/{repo}/keys/available', params)
+export function getReposOwnerRepoKeysAvailable(p: GetReposOwnerRepoKeysAvailable): AxiosPromise<SSHKeyBasic[]> {
+  return f('/repos/{owner}/{repo}/keys/available', p)
 }
 
 // 启用仓库公钥
-export function putReposOwnerRepoKeysEnableId(params: PutReposOwnerRepoKeysEnableId) {
-  return f('/repos/{owner}/{repo}/keys/enable/{id}', params, 'put')
+export function putReposOwnerRepoKeysEnableId(p: PutReposOwnerRepoKeysEnableId) {
+  return f('/repos/{owner}/{repo}/keys/enable/{id}', p, 'put')
 }
 
 // 停用仓库公钥
-export function deleteReposOwnerRepoKeysEnableId(params: DeleteReposOwnerRepoKeysEnableId) {
-  return f('/repos/{owner}/{repo}/keys/enable/{id}', params, 'delete')
+export function deleteReposOwnerRepoKeysEnableId(p: DeleteReposOwnerRepoKeysEnableId) {
+  return f('/repos/{owner}/{repo}/keys/enable/{id}', p, 'delete')
 }
 
 // 获取仓库的单个公钥
-export function getReposOwnerRepoKeysId(params: GetReposOwnerRepoKeysId): AxiosPromise<SSHKey> {
-  return f('/repos/{owner}/{repo}/keys/{id}', params)
+export function getReposOwnerRepoKeysId(p: GetReposOwnerRepoKeysId): AxiosPromise<SSHKey> {
+  return f('/repos/{owner}/{repo}/keys/{id}', p)
 }
 
 // 删除一个仓库公钥
-export function deleteReposOwnerRepoKeysId(params: DeleteReposOwnerRepoKeysId) {
-  return f('/repos/{owner}/{repo}/keys/{id}', params, 'delete')
+export function deleteReposOwnerRepoKeysId(p: DeleteReposOwnerRepoKeysId) {
+  return f('/repos/{owner}/{repo}/keys/{id}', p, 'delete')
 }
 
 // 获取仓库README
-export function getReposOwnerRepoReadme(params: GetReposOwnerRepoReadme): AxiosPromise<Content> {
-  return f('/repos/{owner}/{repo}/readme', params)
+export function getReposOwnerRepoReadme(p: GetReposOwnerRepoReadme): AxiosPromise<Content> {
+  return f('/repos/{owner}/{repo}/readme', p)
 }
 
 // 获取仓库具体路径下的内容
-export function getReposOwnerRepoContents(params: GetReposOwnerRepoContents): AxiosPromise<Content[]> {
-  return f('/repos/{owner}/{repo}/contents(/{path})', params)
+export function getReposOwnerRepoContents(p: GetReposOwnerRepoContents): AxiosPromise<Content[]> {
+  return f('/repos/{owner}/{repo}/contents(/{path})', p)
 }
 
 // 新建文件
-export function postReposOwnerRepoContentsPath(params: PostReposOwnerRepoContentsPath): AxiosPromise<CommitContent> {
-  return f('/repos/{owner}/{repo}/contents/{path}', params, 'post')
+export function postReposOwnerRepoContentsPath(p: PostReposOwnerRepoContentsPath): AxiosPromise<CommitContent> {
+  return f('/repos/{owner}/{repo}/contents/{path}', p, 'post')
 }
 
 // 更新文件
-export function putReposOwnerRepoContentsPath(params: PutReposOwnerRepoContentsPath): AxiosPromise<CommitContent> {
-  return f('/repos/{owner}/{repo}/contents/{path}', params, 'put')
+export function putReposOwnerRepoContentsPath(p: PutReposOwnerRepoContentsPath): AxiosPromise<CommitContent> {
+  return f('/repos/{owner}/{repo}/contents/{path}', p, 'put')
 }
 
 // 删除文件
-export function deleteReposOwnerRepoContentsPath(
-  params: DeleteReposOwnerRepoContentsPath
-): AxiosPromise<CommitContent> {
-  return f('/repos/{owner}/{repo}/contents/{path}', params, 'delete')
+export function deleteReposOwnerRepoContentsPath(p: DeleteReposOwnerRepoContentsPath): AxiosPromise<CommitContent> {
+  return f('/repos/{owner}/{repo}/contents/{path}', p, 'delete')
 }
 
 // 获取文件Blob
-export function getReposOwnerRepoGitBlobsSha(params: GetReposOwnerRepoGitBlobsSha): AxiosPromise<Blob> {
-  return f('/repos/{owner}/{repo}/git/blobs/{sha}', params)
+export function getReposOwnerRepoGitBlobsSha(p: GetReposOwnerRepoGitBlobsSha): AxiosPromise<Blob> {
+  return f('/repos/{owner}/{repo}/git/blobs/{sha}', p)
 }
 
 // 获取目录Tree
-export function getReposOwnerRepoGitTreesSha(params: GetReposOwnerRepoGitTreesSha): AxiosPromise<Tree> {
-  return f('/repos/{owner}/{repo}/git/trees/{sha}', params)
+export function getReposOwnerRepoGitTreesSha(p: GetReposOwnerRepoGitTreesSha): AxiosPromise<Tree> {
+  return f('/repos/{owner}/{repo}/git/trees/{sha}', p)
 }
 
 // 获取 Gitee 指数
-export function getReposOwnerRepoGitGiteeMetrics(params: GetReposOwnerRepoGitGiteeMetrics): AxiosPromise<GiteeMetrics> {
-  return f('/repos/{owner}/{repo}/git/gitee_metrics', params)
+export function getReposOwnerRepoGitGiteeMetrics(p: GetReposOwnerRepoGitGiteeMetrics): AxiosPromise<GiteeMetrics> {
+  return f('/repos/{owner}/{repo}/git/gitee_metrics', p)
 }
 
 // 仓库的所有Issues
-export function getReposOwnerRepoIssues(params: GetReposOwnerRepoIssues): AxiosPromise<Issue[]> {
-  return f('/repos/{owner}/{repo}/issues', params)
+export function getReposOwnerRepoIssues(p: GetReposOwnerRepoIssues): AxiosPromise<Issue[]> {
+  return f('/repos/{owner}/{repo}/issues', p)
 }
 
 // 仓库的某个Issue
-export function getReposOwnerRepoIssuesNumber(params: GetReposOwnerRepoIssuesNumber): AxiosPromise<Issue> {
-  return f('/repos/{owner}/{repo}/issues/{number}', params)
+export function getReposOwnerRepoIssuesNumber(p: GetReposOwnerRepoIssuesNumber): AxiosPromise<Issue> {
+  return f('/repos/{owner}/{repo}/issues/{number}', p)
 }
 
 // 创建Issue
-export function postReposOwnerIssues(params: PostReposOwnerIssues): AxiosPromise<Issue> {
-  return f('/repos/{owner}/issues', params, 'post')
+export function postReposOwnerIssues(p: PostReposOwnerIssues): AxiosPromise<Issue> {
+  return f('/repos/{owner}/issues', p, 'post')
 }
 
 // 更新Issue
-export function patchReposOwnerIssuesNumber(params: PatchReposOwnerIssuesNumber): AxiosPromise<Issue> {
-  return f('/repos/{owner}/issues/{number}', params, 'patch')
+export function patchReposOwnerIssuesNumber(p: PatchReposOwnerIssuesNumber): AxiosPromise<Issue> {
+  return f('/repos/{owner}/issues/{number}', p, 'patch')
 }
 
 // 获取 issue 关联的 Pull Requests
 export function getReposOwnerIssuesNumberPullRequests(
-  params: GetReposOwnerIssuesNumberPullRequests
+  p: GetReposOwnerIssuesNumberPullRequests
 ): AxiosPromise<PullRequest[]> {
-  return f('/repos/{owner}/issues/{number}/pull_requests', params)
+  return f('/repos/{owner}/issues/{number}/pull_requests', p)
 }
 
 // 获取某个Issue下的操作日志
 export function getReposOwnerIssuesNumberOperateLogs(
-  params: GetReposOwnerIssuesNumberOperateLogs
+  p: GetReposOwnerIssuesNumberOperateLogs
 ): AxiosPromise<OperateLog[]> {
-  return f('/repos/{owner}/issues/{number}/operate_logs', params)
+  return f('/repos/{owner}/issues/{number}/operate_logs', p)
 }
 
 // 获取仓库所有任务标签
-export function getReposOwnerRepoLabels(params: GetReposOwnerRepoLabels): AxiosPromise<Label[]> {
-  return f('/repos/{owner}/{repo}/labels', params)
+export function getReposOwnerRepoLabels(p: GetReposOwnerRepoLabels): AxiosPromise<Label[]> {
+  return f('/repos/{owner}/{repo}/labels', p)
 }
 
 // 创建仓库任务标签
-export function postReposOwnerRepoLabels(params: PostReposOwnerRepoLabels): AxiosPromise<Label> {
-  return f('/repos/{owner}/{repo}/labels', params, 'post')
+export function postReposOwnerRepoLabels(p: PostReposOwnerRepoLabels): AxiosPromise<Label> {
+  return f('/repos/{owner}/{repo}/labels', p, 'post')
 }
 
 // 根据标签名称获取单个标签
-export function getReposOwnerRepoLabelsName(params: GetReposOwnerRepoLabelsName): AxiosPromise<Label> {
-  return f('/repos/{owner}/{repo}/labels/{name}', params)
+export function getReposOwnerRepoLabelsName(p: GetReposOwnerRepoLabelsName): AxiosPromise<Label> {
+  return f('/repos/{owner}/{repo}/labels/{name}', p)
 }
 
 // 删除一个仓库任务标签
-export function deleteReposOwnerRepoLabelsName(params: DeleteReposOwnerRepoLabelsName) {
-  return f('/repos/{owner}/{repo}/labels/{name}', params, 'delete')
+export function deleteReposOwnerRepoLabelsName(p: DeleteReposOwnerRepoLabelsName) {
+  return f('/repos/{owner}/{repo}/labels/{name}', p, 'delete')
 }
 
 // 更新一个仓库任务标签
-export function patchReposOwnerRepoLabelsOriginalName(
-  params: PatchReposOwnerRepoLabelsOriginalName
-): AxiosPromise<Label> {
-  return f('/repos/{owner}/{repo}/labels/{original_name}', params, 'patch')
+export function patchReposOwnerRepoLabelsOriginalName(p: PatchReposOwnerRepoLabelsOriginalName): AxiosPromise<Label> {
+  return f('/repos/{owner}/{repo}/labels/{original_name}', p, 'patch')
 }
 
 // 获取仓库任务的所有标签
-export function getReposOwnerRepoIssuesNumberLabels(
-  params: GetReposOwnerRepoIssuesNumberLabels
-): AxiosPromise<Label[]> {
-  return f('/repos/{owner}/{repo}/issues/{number}/labels', params)
+export function getReposOwnerRepoIssuesNumberLabels(p: GetReposOwnerRepoIssuesNumberLabels): AxiosPromise<Label[]> {
+  return f('/repos/{owner}/{repo}/issues/{number}/labels', p)
 }
 
 // 创建Issue标签 需要在请求的body里填上数组，元素为标签的名字。如: ["performance", "bug"]
-export function postReposOwnerRepoIssuesNumberLabels(
-  params: PostReposOwnerRepoIssuesNumberLabels
-): AxiosPromise<Label> {
-  return f('/repos/{owner}/{repo}/issues/{number}/labels', params, 'post')
+export function postReposOwnerRepoIssuesNumberLabels(p: PostReposOwnerRepoIssuesNumberLabels): AxiosPromise<Label> {
+  return f('/repos/{owner}/{repo}/issues/{number}/labels', p, 'post')
 }
 
 // 替换Issue所有标签 需要在请求的body里填上数组，元素为标签的名字。如: ["performance", "bug"]
-export function putReposOwnerRepoIssuesNumberLabels(params: PutReposOwnerRepoIssuesNumberLabels): AxiosPromise<Label> {
-  return f('/repos/{owner}/{repo}/issues/{number}/labels', params, 'put')
+export function putReposOwnerRepoIssuesNumberLabels(p: PutReposOwnerRepoIssuesNumberLabels): AxiosPromise<Label> {
+  return f('/repos/{owner}/{repo}/issues/{number}/labels', p, 'put')
 }
 
 // 删除Issue所有标签
-export function deleteReposOwnerRepoIssuesNumberLabels(params: DeleteReposOwnerRepoIssuesNumberLabels) {
-  return f('/repos/{owner}/{repo}/issues/{number}/labels', params, 'delete')
+export function deleteReposOwnerRepoIssuesNumberLabels(p: DeleteReposOwnerRepoIssuesNumberLabels) {
+  return f('/repos/{owner}/{repo}/issues/{number}/labels', p, 'delete')
 }
 
 // 删除Issue标签
-export function deleteReposOwnerRepoIssuesNumberLabelsName(params: DeleteReposOwnerRepoIssuesNumberLabelsName) {
-  return f('/repos/{owner}/{repo}/issues/{number}/labels/{name}', params, 'delete')
+export function deleteReposOwnerRepoIssuesNumberLabelsName(p: DeleteReposOwnerRepoIssuesNumberLabelsName) {
+  return f('/repos/{owner}/{repo}/issues/{number}/labels/{name}', p, 'delete')
 }
 
 // 获取仓库所有里程碑
-export function getReposOwnerRepoMilestones(params: GetReposOwnerRepoMilestones): AxiosPromise<Milestone[]> {
-  return f('/repos/{owner}/{repo}/milestones', params)
+export function getReposOwnerRepoMilestones(p: GetReposOwnerRepoMilestones): AxiosPromise<Milestone[]> {
+  return f('/repos/{owner}/{repo}/milestones', p)
 }
 
 // 创建仓库里程碑
-export function postReposOwnerRepoMilestones(params: PostReposOwnerRepoMilestones): AxiosPromise<Milestone> {
-  return f('/repos/{owner}/{repo}/milestones', params, 'post')
+export function postReposOwnerRepoMilestones(p: PostReposOwnerRepoMilestones): AxiosPromise<Milestone> {
+  return f('/repos/{owner}/{repo}/milestones', p, 'post')
 }
 
 // 获取仓库单个里程碑
-export function getReposOwnerRepoMilestonesNumber(params: GetReposOwnerRepoMilestonesNumber): AxiosPromise<Milestone> {
-  return f('/repos/{owner}/{repo}/milestones/{number}', params)
+export function getReposOwnerRepoMilestonesNumber(p: GetReposOwnerRepoMilestonesNumber): AxiosPromise<Milestone> {
+  return f('/repos/{owner}/{repo}/milestones/{number}', p)
 }
 
 // 更新仓库里程碑
-export function patchReposOwnerRepoMilestonesNumber(
-  params: PatchReposOwnerRepoMilestonesNumber
-): AxiosPromise<Milestone> {
-  return f('/repos/{owner}/{repo}/milestones/{number}', params, 'patch')
+export function patchReposOwnerRepoMilestonesNumber(p: PatchReposOwnerRepoMilestonesNumber): AxiosPromise<Milestone> {
+  return f('/repos/{owner}/{repo}/milestones/{number}', p, 'patch')
 }
 
 // 删除仓库单个里程碑
-export function deleteReposOwnerRepoMilestonesNumber(params: DeleteReposOwnerRepoMilestonesNumber) {
-  return f('/repos/{owner}/{repo}/milestones/{number}', params, 'delete')
+export function deleteReposOwnerRepoMilestonesNumber(p: DeleteReposOwnerRepoMilestonesNumber) {
+  return f('/repos/{owner}/{repo}/milestones/{number}', p, 'delete')
 }
 
 // 获取一个仓库使用的开源许可协议
-export function getReposOwnerRepoLicense(params: GetReposOwnerRepoLicense) {
-  return f('/repos/{owner}/{repo}/license', params)
+export function getReposOwnerRepoLicense(p: GetReposOwnerRepoLicense) {
+  return f('/repos/{owner}/{repo}/license', p)
 }
 
 // 获取仓库的Commit评论
-export function getReposOwnerRepoComments(params: GetReposOwnerRepoComments): AxiosPromise<Note> {
-  return f('/repos/{owner}/{repo}/comments', params)
+export function getReposOwnerRepoComments(p: GetReposOwnerRepoComments): AxiosPromise<Note> {
+  return f('/repos/{owner}/{repo}/comments', p)
 }
 
 // 获取单个Commit的评论
-export function getReposOwnerRepoCommitsRefComments(params: GetReposOwnerRepoCommitsRefComments): AxiosPromise<Note> {
-  return f('/repos/{owner}/{repo}/commits/{ref}/comments', params)
+export function getReposOwnerRepoCommitsRefComments(p: GetReposOwnerRepoCommitsRefComments): AxiosPromise<Note> {
+  return f('/repos/{owner}/{repo}/commits/{ref}/comments', p)
 }
 
 // 获取仓库的某条Commit评论
-export function getReposOwnerRepoCommentsId(params: GetReposOwnerRepoCommentsId): AxiosPromise<Note> {
-  return f('/repos/{owner}/{repo}/comments/{id}', params)
+export function getReposOwnerRepoCommentsId(p: GetReposOwnerRepoCommentsId): AxiosPromise<Note> {
+  return f('/repos/{owner}/{repo}/comments/{id}', p)
 }
 
 // 更新Commit评论
-export function patchReposOwnerRepoCommentsId(params: PatchReposOwnerRepoCommentsId): AxiosPromise<Note> {
-  return f('/repos/{owner}/{repo}/comments/{id}', params, 'patch')
+export function patchReposOwnerRepoCommentsId(p: PatchReposOwnerRepoCommentsId): AxiosPromise<Note> {
+  return f('/repos/{owner}/{repo}/comments/{id}', p, 'patch')
 }
 
 // 删除Commit评论
-export function deleteReposOwnerRepoCommentsId(params: DeleteReposOwnerRepoCommentsId) {
-  return f('/repos/{owner}/{repo}/comments/{id}', params, 'delete')
+export function deleteReposOwnerRepoCommentsId(p: DeleteReposOwnerRepoCommentsId) {
+  return f('/repos/{owner}/{repo}/comments/{id}', p, 'delete')
 }
 
 // 创建Commit评论
-export function postReposOwnerRepoCommitsShaComments(params: PostReposOwnerRepoCommitsShaComments): AxiosPromise<Note> {
-  return f('/repos/{owner}/{repo}/commits/{sha}/comments', params, 'post')
+export function postReposOwnerRepoCommitsShaComments(p: PostReposOwnerRepoCommitsShaComments): AxiosPromise<Note> {
+  return f('/repos/{owner}/{repo}/commits/{sha}/comments', p, 'post')
 }
 
 // 获取仓库所有Issue的评论
-export function getReposOwnerRepoIssuesComments(params: GetReposOwnerRepoIssuesComments): AxiosPromise<Note> {
-  return f('/repos/{owner}/{repo}/issues/comments', params)
+export function getReposOwnerRepoIssuesComments(p: GetReposOwnerRepoIssuesComments): AxiosPromise<Note> {
+  return f('/repos/{owner}/{repo}/issues/comments', p)
 }
 
 // 获取仓库某个Issue所有的评论
-export function getReposOwnerRepoIssuesNumberComments(
-  params: GetReposOwnerRepoIssuesNumberComments
-): AxiosPromise<Note[]> {
-  return f('/repos/{owner}/{repo}/issues/{number}/comments', params)
+export function getReposOwnerRepoIssuesNumberComments(p: GetReposOwnerRepoIssuesNumberComments): AxiosPromise<Note[]> {
+  return f('/repos/{owner}/{repo}/issues/{number}/comments', p)
 }
 
 // 创建某个Issue评论
-export function postReposOwnerRepoIssuesNumberComments(
-  params: PostReposOwnerRepoIssuesNumberComments
-): AxiosPromise<Note> {
-  return f('/repos/{owner}/{repo}/issues/{number}/comments', params, 'post')
+export function postReposOwnerRepoIssuesNumberComments(p: PostReposOwnerRepoIssuesNumberComments): AxiosPromise<Note> {
+  return f('/repos/{owner}/{repo}/issues/{number}/comments', p, 'post')
 }
 
 // 获取仓库Issue某条评论
-export function getReposOwnerRepoIssuesCommentsId(params: GetReposOwnerRepoIssuesCommentsId): AxiosPromise<Note> {
-  return f('/repos/{owner}/{repo}/issues/comments/{id}', params)
+export function getReposOwnerRepoIssuesCommentsId(p: GetReposOwnerRepoIssuesCommentsId): AxiosPromise<Note> {
+  return f('/repos/{owner}/{repo}/issues/comments/{id}', p)
 }
 
 // 更新Issue某条评论
-export function patchReposOwnerRepoIssuesCommentsId(params: PatchReposOwnerRepoIssuesCommentsId): AxiosPromise<Note> {
-  return f('/repos/{owner}/{repo}/issues/comments/{id}', params, 'patch')
+export function patchReposOwnerRepoIssuesCommentsId(p: PatchReposOwnerRepoIssuesCommentsId): AxiosPromise<Note> {
+  return f('/repos/{owner}/{repo}/issues/comments/{id}', p, 'patch')
 }
 
 // 删除Issue某条评论
-export function deleteReposOwnerRepoIssuesCommentsId(params: DeleteReposOwnerRepoIssuesCommentsId) {
-  return f('/repos/{owner}/{repo}/issues/comments/{id}', params, 'delete')
+export function deleteReposOwnerRepoIssuesCommentsId(p: DeleteReposOwnerRepoIssuesCommentsId) {
+  return f('/repos/{owner}/{repo}/issues/comments/{id}', p, 'delete')
 }
 
 // 获取Pages信息
-export function getReposOwnerRepoPages(params: GetReposOwnerRepoPages) {
-  return f('/repos/{owner}/{repo}/pages', params)
+export function getReposOwnerRepoPages(p: GetReposOwnerRepoPages) {
+  return f('/repos/{owner}/{repo}/pages', p)
 }
 
 // 请求建立Pages
-export function postReposOwnerRepoPagesBuilds(params: PostReposOwnerRepoPagesBuilds) {
-  return f('/repos/{owner}/{repo}/pages/builds', params, 'post')
+export function postReposOwnerRepoPagesBuilds(p: PostReposOwnerRepoPagesBuilds) {
+  return f('/repos/{owner}/{repo}/pages/builds', p, 'post')
 }
 
 // 获取用户的某个仓库
-export function getReposOwnerRepo(params: GetReposOwnerRepo): AxiosPromise<Project> {
-  return f('/repos/{owner}/{repo}', params)
+export function getReposOwnerRepo(p: GetReposOwnerRepo): AxiosPromise<Project> {
+  return f('/repos/{owner}/{repo}', p)
 }
 
 // 更新仓库设置
-export function patchReposOwnerRepo(params: PatchReposOwnerRepo): AxiosPromise<Project> {
-  return f('/repos/{owner}/{repo}', params, 'patch')
+export function patchReposOwnerRepo(p: PatchReposOwnerRepo): AxiosPromise<Project> {
+  return f('/repos/{owner}/{repo}', p, 'patch')
 }
 
 // 删除一个仓库
-export function deleteReposOwnerRepo(params: DeleteReposOwnerRepo) {
-  return f('/repos/{owner}/{repo}', params, 'delete')
+export function deleteReposOwnerRepo(p: DeleteReposOwnerRepo) {
+  return f('/repos/{owner}/{repo}', p, 'delete')
 }
 
 // 修改代码审查设置
-export function putReposOwnerRepoReviewer(params: PutReposOwnerRepoReviewer): AxiosPromise<Contributor> {
-  return f('/repos/{owner}/{repo}/reviewer', params, 'put')
+export function putReposOwnerRepoReviewer(p: PutReposOwnerRepoReviewer): AxiosPromise<Contributor> {
+  return f('/repos/{owner}/{repo}/reviewer', p, 'put')
 }
 
 // 获取仓库贡献者
-export function getReposOwnerRepoContributors(params: GetReposOwnerRepoContributors): AxiosPromise<Contributor> {
-  return f('/repos/{owner}/{repo}/contributors', params)
+export function getReposOwnerRepoContributors(p: GetReposOwnerRepoContributors): AxiosPromise<Contributor> {
+  return f('/repos/{owner}/{repo}/contributors', p)
 }
 
 // 列出仓库所有的tags
-export function getReposOwnerRepoTags(params: GetReposOwnerRepoTags): AxiosPromise<Tag> {
-  return f('/repos/{owner}/{repo}/tags', params)
+export function getReposOwnerRepoTags(p: GetReposOwnerRepoTags): AxiosPromise<Tag> {
+  return f('/repos/{owner}/{repo}/tags', p)
 }
 
 // 创建一个仓库的 Tag
-export function postReposOwnerRepoTags(params: PostReposOwnerRepoTags): AxiosPromise<Tag> {
-  return f('/repos/{owner}/{repo}/tags', params, 'post')
+export function postReposOwnerRepoTags(p: PostReposOwnerRepoTags): AxiosPromise<Tag> {
+  return f('/repos/{owner}/{repo}/tags', p, 'post')
 }
 
 // 清空一个仓库
-export function putReposOwnerRepoClear(params: PutReposOwnerRepoClear) {
-  return f('/repos/{owner}/{repo}/clear', params, 'put')
+export function putReposOwnerRepoClear(p: PutReposOwnerRepoClear) {
+  return f('/repos/{owner}/{repo}/clear', p, 'put')
 }
 
 // 获取仓库的所有成员
-export function getReposOwnerRepoCollaborators(params: GetReposOwnerRepoCollaborators): AxiosPromise<ProjectMember> {
-  return f('/repos/{owner}/{repo}/collaborators', params)
+export function getReposOwnerRepoCollaborators(p: GetReposOwnerRepoCollaborators): AxiosPromise<ProjectMember> {
+  return f('/repos/{owner}/{repo}/collaborators', p)
 }
 
 // 判断用户是否为仓库成员
-export function getReposOwnerRepoCollaboratorsUsername(params: GetReposOwnerRepoCollaboratorsUsername) {
-  return f('/repos/{owner}/{repo}/collaborators/{username}', params)
+export function getReposOwnerRepoCollaboratorsUsername(p: GetReposOwnerRepoCollaboratorsUsername) {
+  return f('/repos/{owner}/{repo}/collaborators/{username}', p)
 }
 
 // 添加仓库成员
 export function putReposOwnerRepoCollaboratorsUsername(
-  params: PutReposOwnerRepoCollaboratorsUsername
+  p: PutReposOwnerRepoCollaboratorsUsername
 ): AxiosPromise<ProjectMember> {
-  return f('/repos/{owner}/{repo}/collaborators/{username}', params, 'put')
+  return f('/repos/{owner}/{repo}/collaborators/{username}', p, 'put')
 }
 
 // 移除仓库成员
-export function deleteReposOwnerRepoCollaboratorsUsername(params: DeleteReposOwnerRepoCollaboratorsUsername) {
-  return f('/repos/{owner}/{repo}/collaborators/{username}', params, 'delete')
+export function deleteReposOwnerRepoCollaboratorsUsername(p: DeleteReposOwnerRepoCollaboratorsUsername) {
+  return f('/repos/{owner}/{repo}/collaborators/{username}', p, 'delete')
 }
 
 // 查看仓库成员的权限
 export function getReposOwnerRepoCollaboratorsUsernamePermission(
-  params: GetReposOwnerRepoCollaboratorsUsernamePermission
+  p: GetReposOwnerRepoCollaboratorsUsernamePermission
 ): AxiosPromise<ProjectMemberPermission> {
-  return f('/repos/{owner}/{repo}/collaborators/{username}/permission', params)
+  return f('/repos/{owner}/{repo}/collaborators/{username}/permission', p)
 }
 
 // 查看仓库的Forks
-export function getReposOwnerRepoForks(params: GetReposOwnerRepoForks): AxiosPromise<Project> {
-  return f('/repos/{owner}/{repo}/forks', params)
+export function getReposOwnerRepoForks(p: GetReposOwnerRepoForks): AxiosPromise<Project> {
+  return f('/repos/{owner}/{repo}/forks', p)
 }
 
 // Fork一个仓库
-export function postReposOwnerRepoForks(params: PostReposOwnerRepoForks): AxiosPromise<Project> {
-  return f('/repos/{owner}/{repo}/forks', params, 'post')
+export function postReposOwnerRepoForks(p: PostReposOwnerRepoForks): AxiosPromise<Project> {
+  return f('/repos/{owner}/{repo}/forks', p, 'post')
 }
 
 // 获取Pull Request列表
-export function getReposOwnerRepoPulls(params: GetReposOwnerRepoPulls): AxiosPromise<PullRequest[]> {
-  return f('/repos/{owner}/{repo}/pulls', params)
+export function getReposOwnerRepoPulls(p: GetReposOwnerRepoPulls): AxiosPromise<PullRequest[]> {
+  return f('/repos/{owner}/{repo}/pulls', p)
 }
 
 // 创建Pull Request
-export function postReposOwnerRepoPulls(params: PostReposOwnerRepoPulls): AxiosPromise<PullRequest> {
-  return f('/repos/{owner}/{repo}/pulls', params, 'post')
+export function postReposOwnerRepoPulls(p: PostReposOwnerRepoPulls): AxiosPromise<PullRequest> {
+  return f('/repos/{owner}/{repo}/pulls', p, 'post')
 }
 
 // 获取该仓库下的所有Pull Request评论
-export function getReposOwnerRepoPullsComments(
-  params: GetReposOwnerRepoPullsComments
-): AxiosPromise<PullRequestComments[]> {
-  return f('/repos/{owner}/{repo}/pulls/comments', params)
+export function getReposOwnerRepoPullsComments(p: GetReposOwnerRepoPullsComments): AxiosPromise<PullRequestComments[]> {
+  return f('/repos/{owner}/{repo}/pulls/comments', p)
 }
 
 // 获取单个Pull Request
-export function getReposOwnerRepoPullsNumber(params: GetReposOwnerRepoPullsNumber): AxiosPromise<PullRequest> {
-  return f('/repos/{owner}/{repo}/pulls/{number}', params)
+export function getReposOwnerRepoPullsNumber(p: GetReposOwnerRepoPullsNumber): AxiosPromise<PullRequest> {
+  return f('/repos/{owner}/{repo}/pulls/{number}', p)
 }
 
 // 更新Pull Request信息
-export function patchReposOwnerRepoPullsNumber(params: PatchReposOwnerRepoPullsNumber): AxiosPromise<PullRequest> {
-  return f('/repos/{owner}/{repo}/pulls/{number}', params, 'patch')
+export function patchReposOwnerRepoPullsNumber(p: PatchReposOwnerRepoPullsNumber): AxiosPromise<PullRequest> {
+  return f('/repos/{owner}/{repo}/pulls/{number}', p, 'patch')
 }
 
 // 获取某个Pull Request的操作日志
 export function getReposOwnerRepoPullsNumberOperateLogs(
-  params: GetReposOwnerRepoPullsNumberOperateLogs
+  p: GetReposOwnerRepoPullsNumberOperateLogs
 ): AxiosPromise<OperateLog> {
-  return f('/repos/{owner}/{repo}/pulls/{number}/operate_logs', params)
+  return f('/repos/{owner}/{repo}/pulls/{number}/operate_logs', p)
 }
 
 // 获取某Pull Request的所有Commit信息。最多显示250条Commit
 export function getReposOwnerRepoPullsNumberCommits(
-  params: GetReposOwnerRepoPullsNumberCommits
+  p: GetReposOwnerRepoPullsNumberCommits
 ): AxiosPromise<PullRequestCommits[]> {
-  return f('/repos/{owner}/{repo}/pulls/{number}/commits', params)
+  return f('/repos/{owner}/{repo}/pulls/{number}/commits', p)
 }
 
 // Pull Request Commit文件列表。最多显示300条diff
 export function getReposOwnerRepoPullsNumberFiles(
-  params: GetReposOwnerRepoPullsNumberFiles
+  p: GetReposOwnerRepoPullsNumberFiles
 ): AxiosPromise<PullRequestFiles[]> {
-  return f('/repos/{owner}/{repo}/pulls/{number}/files', params)
+  return f('/repos/{owner}/{repo}/pulls/{number}/files', p)
 }
 
 // 判断Pull Request是否已经合并
-export function getReposOwnerRepoPullsNumberMerge(params: GetReposOwnerRepoPullsNumberMerge) {
-  return f('/repos/{owner}/{repo}/pulls/{number}/merge', params)
+export function getReposOwnerRepoPullsNumberMerge(p: GetReposOwnerRepoPullsNumberMerge) {
+  return f('/repos/{owner}/{repo}/pulls/{number}/merge', p)
 }
 
 // 合并Pull Request
-export function putReposOwnerRepoPullsNumberMerge(params: PutReposOwnerRepoPullsNumberMerge) {
-  return f('/repos/{owner}/{repo}/pulls/{number}/merge', params, 'put')
+export function putReposOwnerRepoPullsNumberMerge(p: PutReposOwnerRepoPullsNumberMerge) {
+  return f('/repos/{owner}/{repo}/pulls/{number}/merge', p, 'put')
 }
 
 // 处理 Pull Request 审查
-export function postReposOwnerRepoPullsNumberReview(params: PostReposOwnerRepoPullsNumberReview) {
-  return f('/repos/{owner}/{repo}/pulls/{number}/review', params, 'post')
+export function postReposOwnerRepoPullsNumberReview(p: PostReposOwnerRepoPullsNumberReview) {
+  return f('/repos/{owner}/{repo}/pulls/{number}/review', p, 'post')
 }
 
 // 处理 Pull Request 测试
-export function postReposOwnerRepoPullsNumberTest(params: PostReposOwnerRepoPullsNumberTest) {
-  return f('/repos/{owner}/{repo}/pulls/{number}/test', params, 'post')
+export function postReposOwnerRepoPullsNumberTest(p: PostReposOwnerRepoPullsNumberTest) {
+  return f('/repos/{owner}/{repo}/pulls/{number}/test', p, 'post')
 }
 
 // 指派用户审查 Pull Request
 export function postReposOwnerRepoPullsNumberAssignees(
-  params: PostReposOwnerRepoPullsNumberAssignees
+  p: PostReposOwnerRepoPullsNumberAssignees
 ): AxiosPromise<PullRequest> {
-  return f('/repos/{owner}/{repo}/pulls/{number}/assignees', params, 'post')
+  return f('/repos/{owner}/{repo}/pulls/{number}/assignees', p, 'post')
 }
 
 // 取消用户审查 Pull Request
 export function deleteReposOwnerRepoPullsNumberAssignees(
-  params: DeleteReposOwnerRepoPullsNumberAssignees
+  p: DeleteReposOwnerRepoPullsNumberAssignees
 ): AxiosPromise<PullRequest> {
-  return f('/repos/{owner}/{repo}/pulls/{number}/assignees', params, 'delete')
+  return f('/repos/{owner}/{repo}/pulls/{number}/assignees', p, 'delete')
 }
 
 // 重置 Pull Request 审查 的状态
 export function patchReposOwnerRepoPullsNumberAssignees(
-  params: PatchReposOwnerRepoPullsNumberAssignees
+  p: PatchReposOwnerRepoPullsNumberAssignees
 ): AxiosPromise<PullRequest> {
-  return f('/repos/{owner}/{repo}/pulls/{number}/assignees', params, 'patch')
+  return f('/repos/{owner}/{repo}/pulls/{number}/assignees', p, 'patch')
 }
 
 // 指派用户测试 Pull Request
 export function postReposOwnerRepoPullsNumberTesters(
-  params: PostReposOwnerRepoPullsNumberTesters
+  p: PostReposOwnerRepoPullsNumberTesters
 ): AxiosPromise<PullRequest> {
-  return f('/repos/{owner}/{repo}/pulls/{number}/testers', params, 'post')
+  return f('/repos/{owner}/{repo}/pulls/{number}/testers', p, 'post')
 }
 
 // 取消用户测试 Pull Request
 export function deleteReposOwnerRepoPullsNumberTesters(
-  params: DeleteReposOwnerRepoPullsNumberTesters
+  p: DeleteReposOwnerRepoPullsNumberTesters
 ): AxiosPromise<PullRequest> {
-  return f('/repos/{owner}/{repo}/pulls/{number}/testers', params, 'delete')
+  return f('/repos/{owner}/{repo}/pulls/{number}/testers', p, 'delete')
 }
 
 // 重置 Pull Request 测试 的状态
 export function patchReposOwnerRepoPullsNumberTesters(
-  params: PatchReposOwnerRepoPullsNumberTesters
+  p: PatchReposOwnerRepoPullsNumberTesters
 ): AxiosPromise<PullRequest> {
-  return f('/repos/{owner}/{repo}/pulls/{number}/testers', params, 'patch')
+  return f('/repos/{owner}/{repo}/pulls/{number}/testers', p, 'patch')
 }
 
 // 获取 Pull Request 关联的 issues
-export function getReposOwnerRepoPullsNumberIssues(params: GetReposOwnerRepoPullsNumberIssues): AxiosPromise<Issue[]> {
-  return f('/repos/{owner}/{repo}/pulls/{number}/issues', params)
+export function getReposOwnerRepoPullsNumberIssues(p: GetReposOwnerRepoPullsNumberIssues): AxiosPromise<Issue[]> {
+  return f('/repos/{owner}/{repo}/pulls/{number}/issues', p)
 }
 
 // 获取某个Pull Request的所有评论
 export function getReposOwnerRepoPullsNumberComments(
-  params: GetReposOwnerRepoPullsNumberComments
+  p: GetReposOwnerRepoPullsNumberComments
 ): AxiosPromise<PullRequestComments[]> {
-  return f('/repos/{owner}/{repo}/pulls/{number}/comments', params)
+  return f('/repos/{owner}/{repo}/pulls/{number}/comments', p)
 }
 
 // 提交Pull Request评论
 export function postReposOwnerRepoPullsNumberComments(
-  params: PostReposOwnerRepoPullsNumberComments
+  p: PostReposOwnerRepoPullsNumberComments
 ): AxiosPromise<PullRequestComments> {
-  return f('/repos/{owner}/{repo}/pulls/{number}/comments', params, 'post')
+  return f('/repos/{owner}/{repo}/pulls/{number}/comments', p, 'post')
 }
 
 // 获取某个 Pull Request 的所有标签
-export function getReposOwnerRepoPullsNumberLabels(params: GetReposOwnerRepoPullsNumberLabels): AxiosPromise<Label[]> {
-  return f('/repos/{owner}/{repo}/pulls/{number}/labels', params)
+export function getReposOwnerRepoPullsNumberLabels(p: GetReposOwnerRepoPullsNumberLabels): AxiosPromise<Label[]> {
+  return f('/repos/{owner}/{repo}/pulls/{number}/labels', p)
 }
 
 // 创建 Pull Request 标签 需要在请求的 body 里填上数组，元素为标签的名字。如: ["performance", "bug"]
-export function postReposOwnerRepoPullsNumberLabels(params: PostReposOwnerRepoPullsNumberLabels): AxiosPromise<Label> {
-  return f('/repos/{owner}/{repo}/pulls/{number}/labels', params, 'post')
+export function postReposOwnerRepoPullsNumberLabels(p: PostReposOwnerRepoPullsNumberLabels): AxiosPromise<Label> {
+  return f('/repos/{owner}/{repo}/pulls/{number}/labels', p, 'post')
 }
 
 // 替换 Pull Request 所有标签 需要在请求的body里填上数组，元素为标签的名字。如: ["performance", "bug"]
-export function putReposOwnerRepoPullsNumberLabels(params: PutReposOwnerRepoPullsNumberLabels): AxiosPromise<Label> {
-  return f('/repos/{owner}/{repo}/pulls/{number}/labels', params, 'put')
+export function putReposOwnerRepoPullsNumberLabels(p: PutReposOwnerRepoPullsNumberLabels): AxiosPromise<Label> {
+  return f('/repos/{owner}/{repo}/pulls/{number}/labels', p, 'put')
 }
 
 // 删除 Pull Request 标签
-export function deleteReposOwnerRepoPullsNumberLabelsName(params: DeleteReposOwnerRepoPullsNumberLabelsName) {
-  return f('/repos/{owner}/{repo}/pulls/{number}/labels/{name}', params, 'delete')
+export function deleteReposOwnerRepoPullsNumberLabelsName(p: DeleteReposOwnerRepoPullsNumberLabelsName) {
+  return f('/repos/{owner}/{repo}/pulls/{number}/labels/{name}', p, 'delete')
 }
 
 // 获取Pull Request的某个评论
 export function getReposOwnerRepoPullsCommentsId(
-  params: GetReposOwnerRepoPullsCommentsId
+  p: GetReposOwnerRepoPullsCommentsId
 ): AxiosPromise<PullRequestComments> {
-  return f('/repos/{owner}/{repo}/pulls/comments/{id}', params)
+  return f('/repos/{owner}/{repo}/pulls/comments/{id}', p)
 }
 
 // 编辑评论
 export function patchReposOwnerRepoPullsCommentsId(
-  params: PatchReposOwnerRepoPullsCommentsId
+  p: PatchReposOwnerRepoPullsCommentsId
 ): AxiosPromise<PullRequestComments> {
-  return f('/repos/{owner}/{repo}/pulls/comments/{id}', params, 'patch')
+  return f('/repos/{owner}/{repo}/pulls/comments/{id}', p, 'patch')
 }
 
 // 删除评论
-export function deleteReposOwnerRepoPullsCommentsId(params: DeleteReposOwnerRepoPullsCommentsId) {
-  return f('/repos/{owner}/{repo}/pulls/comments/{id}', params, 'delete')
+export function deleteReposOwnerRepoPullsCommentsId(p: DeleteReposOwnerRepoPullsCommentsId) {
+  return f('/repos/{owner}/{repo}/pulls/comments/{id}', p, 'delete')
 }
 
 // 获取仓库的所有Releases
-export function getReposOwnerRepoReleases(params: GetReposOwnerRepoReleases): AxiosPromise<Release[]> {
-  return f('/repos/{owner}/{repo}/releases', params)
+export function getReposOwnerRepoReleases(p: GetReposOwnerRepoReleases): AxiosPromise<Release[]> {
+  return f('/repos/{owner}/{repo}/releases', p)
 }
 
 // 创建仓库Release
-export function postReposOwnerRepoReleases(params: PostReposOwnerRepoReleases): AxiosPromise<Release> {
-  return f('/repos/{owner}/{repo}/releases', params, 'post')
+export function postReposOwnerRepoReleases(p: PostReposOwnerRepoReleases): AxiosPromise<Release> {
+  return f('/repos/{owner}/{repo}/releases', p, 'post')
 }
 
 // 获取仓库的单个Releases
-export function getReposOwnerRepoReleasesId(params: GetReposOwnerRepoReleasesId): AxiosPromise<Release> {
-  return f('/repos/{owner}/{repo}/releases/{id}', params)
+export function getReposOwnerRepoReleasesId(p: GetReposOwnerRepoReleasesId): AxiosPromise<Release> {
+  return f('/repos/{owner}/{repo}/releases/{id}', p)
 }
 
 // 更新仓库Release
-export function patchReposOwnerRepoReleasesId(params: PatchReposOwnerRepoReleasesId): AxiosPromise<Release> {
-  return f('/repos/{owner}/{repo}/releases/{id}', params, 'patch')
+export function patchReposOwnerRepoReleasesId(p: PatchReposOwnerRepoReleasesId): AxiosPromise<Release> {
+  return f('/repos/{owner}/{repo}/releases/{id}', p, 'patch')
 }
 
 // 删除仓库Release
-export function deleteReposOwnerRepoReleasesId(params: DeleteReposOwnerRepoReleasesId) {
-  return f('/repos/{owner}/{repo}/releases/{id}', params, 'delete')
+export function deleteReposOwnerRepoReleasesId(p: DeleteReposOwnerRepoReleasesId) {
+  return f('/repos/{owner}/{repo}/releases/{id}', p, 'delete')
 }
 
 // 获取仓库的最后更新的Release
-export function getReposOwnerRepoReleasesLatest(params: GetReposOwnerRepoReleasesLatest): AxiosPromise<Release> {
-  return f('/repos/{owner}/{repo}/releases/latest', params)
+export function getReposOwnerRepoReleasesLatest(p: GetReposOwnerRepoReleasesLatest): AxiosPromise<Release> {
+  return f('/repos/{owner}/{repo}/releases/latest', p)
 }
 
 // 根据Tag名称获取仓库的Release
-export function getReposOwnerRepoReleasesTagsTag(params: GetReposOwnerRepoReleasesTagsTag): AxiosPromise<Release> {
-  return f('/repos/{owner}/{repo}/releases/tags/{tag}', params)
+export function getReposOwnerRepoReleasesTagsTag(p: GetReposOwnerRepoReleasesTagsTag): AxiosPromise<Release> {
+  return f('/repos/{owner}/{repo}/releases/tags/{tag}', p)
 }
 
 // 列出仓库的WebHooks
-export function getReposOwnerRepoHooks(params: GetReposOwnerRepoHooks): AxiosPromise<Hook[]> {
-  return f('/repos/{owner}/{repo}/hooks', params)
+export function getReposOwnerRepoHooks(p: GetReposOwnerRepoHooks): AxiosPromise<Hook[]> {
+  return f('/repos/{owner}/{repo}/hooks', p)
 }
 
 // 创建一个仓库WebHook
-export function postReposOwnerRepoHooks(params: PostReposOwnerRepoHooks): AxiosPromise<Hook> {
-  return f('/repos/{owner}/{repo}/hooks', params, 'post')
+export function postReposOwnerRepoHooks(p: PostReposOwnerRepoHooks): AxiosPromise<Hook> {
+  return f('/repos/{owner}/{repo}/hooks', p, 'post')
 }
 
 // 获取仓库单个WebHook
-export function getReposOwnerRepoHooksId(params: GetReposOwnerRepoHooksId): AxiosPromise<Hook> {
-  return f('/repos/{owner}/{repo}/hooks/{id}', params)
+export function getReposOwnerRepoHooksId(p: GetReposOwnerRepoHooksId): AxiosPromise<Hook> {
+  return f('/repos/{owner}/{repo}/hooks/{id}', p)
 }
 
 // 更新一个仓库WebHook
-export function patchReposOwnerRepoHooksId(params: PatchReposOwnerRepoHooksId): AxiosPromise<Hook> {
-  return f('/repos/{owner}/{repo}/hooks/{id}', params, 'patch')
+export function patchReposOwnerRepoHooksId(p: PatchReposOwnerRepoHooksId): AxiosPromise<Hook> {
+  return f('/repos/{owner}/{repo}/hooks/{id}', p, 'patch')
 }
 
 // 删除一个仓库WebHook
-export function deleteReposOwnerRepoHooksId(params: DeleteReposOwnerRepoHooksId) {
-  return f('/repos/{owner}/{repo}/hooks/{id}', params, 'delete')
+export function deleteReposOwnerRepoHooksId(p: DeleteReposOwnerRepoHooksId) {
+  return f('/repos/{owner}/{repo}/hooks/{id}', p, 'delete')
 }
 
 // 测试WebHook是否发送成功
-export function postReposOwnerRepoHooksIdTests(params: PostReposOwnerRepoHooksIdTests) {
-  return f('/repos/{owner}/{repo}/hooks/{id}/tests', params, 'post')
+export function postReposOwnerRepoHooksIdTests(p: PostReposOwnerRepoHooksIdTests) {
+  return f('/repos/{owner}/{repo}/hooks/{id}/tests', p, 'post')
 }
 
 // 列出 star 了仓库的用户
-export function getReposOwnerRepoStargazers(params: GetReposOwnerRepoStargazers): AxiosPromise<ProjectStargazers[]> {
-  return f('/repos/{owner}/{repo}/stargazers', params)
+export function getReposOwnerRepoStargazers(p: GetReposOwnerRepoStargazers): AxiosPromise<ProjectStargazers[]> {
+  return f('/repos/{owner}/{repo}/stargazers', p)
 }
 
 // 列出 watch 了仓库的用户
-export function getReposOwnerRepoSubscribers(params: GetReposOwnerRepoSubscribers): AxiosPromise<ProjectWatchers[]> {
-  return f('/repos/{owner}/{repo}/subscribers', params)
+export function getReposOwnerRepoSubscribers(p: GetReposOwnerRepoSubscribers): AxiosPromise<ProjectWatchers[]> {
+  return f('/repos/{owner}/{repo}/subscribers', p)
 }
 
 // 列出仓库的所有动态
-export function getReposOwnerRepoEvents(params: GetReposOwnerRepoEvents): AxiosPromise<Event[]> {
-  return f('/repos/{owner}/{repo}/events', params)
+export function getReposOwnerRepoEvents(p: GetReposOwnerRepoEvents): AxiosPromise<Event[]> {
+  return f('/repos/{owner}/{repo}/events', p)
 }
 
 // 列出一个仓库里的通知
 export function getReposOwnerRepoNotifications(
-  params: GetReposOwnerRepoNotifications
+  p: GetReposOwnerRepoNotifications
 ): AxiosPromise<UserNotificationList[]> {
-  return f('/repos/{owner}/{repo}/notifications', params)
+  return f('/repos/{owner}/{repo}/notifications', p)
 }
 
 // 标记一个仓库里的通知为已读
-export function putReposOwnerRepoNotifications(params: PutReposOwnerRepoNotifications) {
-  return f('/repos/{owner}/{repo}/notifications', params, 'put')
+export function putReposOwnerRepoNotifications(p: PutReposOwnerRepoNotifications) {
+  return f('/repos/{owner}/{repo}/notifications', p, 'put')
 }
 
 // 开通Gitee Go
-export function postReposOwnerRepoOpen(params: PostReposOwnerRepoOpen) {
-  return f('/repos/{owner}/{repo}/open', params, 'post')
+export function postReposOwnerRepoOpen(p: PostReposOwnerRepoOpen) {
+  return f('/repos/{owner}/{repo}/open', p, 'post')
 }
 
 // 列出授权用户的所有公钥
-export function getUserKeys(params: GetUserKeys): AxiosPromise<SSHKey[]> {
-  return f('/user/keys', params)
+export function getUserKeys(p: GetUserKeys): AxiosPromise<SSHKey[]> {
+  return f('/user/keys', p)
 }
 
 // 添加一个公钥
-export function postUserKeys(params: PostUserKeys): AxiosPromise<SSHKey> {
-  return f('/user/keys', params, 'post')
+export function postUserKeys(p: PostUserKeys): AxiosPromise<SSHKey> {
+  return f('/user/keys', p, 'post')
 }
 
 // 获取一个公钥
-export function getUserKeysId(params: GetUserKeysId): AxiosPromise<SSHKey> {
-  return f('/user/keys/{id}', params)
+export function getUserKeysId(p: GetUserKeysId): AxiosPromise<SSHKey> {
+  return f('/user/keys/{id}', p)
 }
 
 // 删除一个公钥
-export function deleteUserKeysId(params: DeleteUserKeysId) {
-  return f('/user/keys/{id}', params, 'delete')
+export function deleteUserKeysId(p: DeleteUserKeysId) {
+  return f('/user/keys/{id}', p, 'delete')
 }
 
 // 列出授权用户所属的组织
-export function getUserOrgs(params: GetUserOrgs): AxiosPromise<Group[]> {
-  return f('/user/orgs', params)
+export function getUserOrgs(p: GetUserOrgs): AxiosPromise<Group[]> {
+  return f('/user/orgs', p)
 }
 
 // 获取授权用户的所有Issues
-export function getUserIssues(params: GetUserIssues): AxiosPromise<Issue[]> {
-  return f('/user/issues', params)
+export function getUserIssues(p: GetUserIssues): AxiosPromise<Issue[]> {
+  return f('/user/issues', p)
 }
 
 // 列出授权用户的所有仓库
-export function getUserRepos(params: GetUserRepos): AxiosPromise<Project> {
-  return f('/user/repos', params)
+export function getUserRepos(p: GetUserRepos): AxiosPromise<Project> {
+  return f('/user/repos', p)
 }
 
 // 创建一个仓库
-export function postUserRepos(params: PostUserRepos): AxiosPromise<Project> {
-  return f('/user/repos', params, 'post')
+export function postUserRepos(p: PostUserRepos): AxiosPromise<Project> {
+  return f('/user/repos', p, 'post')
 }
 
 // 获取授权用户的资料
-export function getUser(params: GetUser): AxiosPromise<UserDetail> {
-  return f('/user', params)
+export function getUser(p: GetUser): AxiosPromise<UserDetail> {
+  return f('/user', p)
 }
 
 // 更新授权用户的资料
-export function patchUser(params: PatchUser): AxiosPromise<User> {
-  return f('/user', params, 'patch')
+export function patchUser(p: PatchUser): AxiosPromise<User> {
+  return f('/user', p, 'patch')
 }
 
 // 列出授权用户的关注者
-export function getUserFollowers(params: GetUserFollowers): AxiosPromise<UserBasic[]> {
-  return f('/user/followers', params)
+export function getUserFollowers(p: GetUserFollowers): AxiosPromise<UserBasic[]> {
+  return f('/user/followers', p)
 }
 
 // 列出授权用户正关注的用户
-export function getUserFollowing(params: GetUserFollowing): AxiosPromise<UserBasic[]> {
-  return f('/user/following', params)
+export function getUserFollowing(p: GetUserFollowing): AxiosPromise<UserBasic[]> {
+  return f('/user/following', p)
 }
 
 // 列出授权用户所有的 Namespace
-export function getUserNamespaces(params: GetUserNamespaces): AxiosPromise<Namespace[]> {
-  return f('/user/namespaces', params)
+export function getUserNamespaces(p: GetUserNamespaces): AxiosPromise<Namespace[]> {
+  return f('/user/namespaces', p)
 }
 
 // 获取授权用户的一个 Namespace
-export function getUserNamespace(params: GetUserNamespace): AxiosPromise<Namespace[]> {
-  return f('/user/namespace', params)
+export function getUserNamespace(p: GetUserNamespace): AxiosPromise<Namespace[]> {
+  return f('/user/namespace', p)
 }
 
 // 列出授权用户 star 了的仓库
-export function getUserStarred(params: GetUserStarred): AxiosPromise<Project[]> {
-  return f('/user/starred', params)
+export function getUserStarred(p: GetUserStarred): AxiosPromise<Project[]> {
+  return f('/user/starred', p)
 }
 
 // 列出授权用户 watch 了的仓库
-export function getUserSubscriptions(params: GetUserSubscriptions): AxiosPromise<Project[]> {
-  return f('/user/subscriptions', params)
+export function getUserSubscriptions(p: GetUserSubscriptions): AxiosPromise<Project[]> {
+  return f('/user/subscriptions', p)
 }
 
 // 列出授权用户所属的企业
-export function getUserEnterprises(params: GetUserEnterprises): AxiosPromise<EnterpriseBasic[]> {
-  return f('/user/enterprises', params)
+export function getUserEnterprises(p: GetUserEnterprises): AxiosPromise<EnterpriseBasic[]> {
+  return f('/user/enterprises', p)
 }
 
 // 列出授权用户在所属组织的成员资料
-export function getUserMembershipsOrgs(params: GetUserMembershipsOrgs): AxiosPromise<GroupMember[]> {
-  return f('/user/memberships/orgs', params)
+export function getUserMembershipsOrgs(p: GetUserMembershipsOrgs): AxiosPromise<GroupMember[]> {
+  return f('/user/memberships/orgs', p)
 }
 
 // 获取授权用户在一个组织的成员资料
-export function getUserMembershipsOrgsOrg(params: GetUserMembershipsOrgsOrg): AxiosPromise<GroupMember> {
-  return f('/user/memberships/orgs/{org}', params)
+export function getUserMembershipsOrgsOrg(p: GetUserMembershipsOrgsOrg): AxiosPromise<GroupMember> {
+  return f('/user/memberships/orgs/{org}', p)
 }
 
 // 更新授权用户在一个组织的成员资料
-export function patchUserMembershipsOrgsOrg(params: PatchUserMembershipsOrgsOrg): AxiosPromise<GroupMember> {
-  return f('/user/memberships/orgs/{org}', params, 'patch')
+export function patchUserMembershipsOrgsOrg(p: PatchUserMembershipsOrgsOrg): AxiosPromise<GroupMember> {
+  return f('/user/memberships/orgs/{org}', p, 'patch')
 }
 
 // 退出一个组织
-export function deleteUserMembershipsOrgsOrg(params: DeleteUserMembershipsOrgsOrg) {
-  return f('/user/memberships/orgs/{org}', params, 'delete')
+export function deleteUserMembershipsOrgsOrg(p: DeleteUserMembershipsOrgsOrg) {
+  return f('/user/memberships/orgs/{org}', p, 'delete')
 }
 
 // 检查授权用户是否关注了一个用户
-export function getUserFollowingUsername(params: GetUserFollowingUsername) {
-  return f('/user/following/{username}', params)
+export function getUserFollowingUsername(p: GetUserFollowingUsername) {
+  return f('/user/following/{username}', p)
 }
 
 // 关注一个用户
-export function putUserFollowingUsername(params: PutUserFollowingUsername) {
-  return f('/user/following/{username}', params, 'put')
+export function putUserFollowingUsername(p: PutUserFollowingUsername) {
+  return f('/user/following/{username}', p, 'put')
 }
 
 // 取消关注一个用户
-export function deleteUserFollowingUsername(params: DeleteUserFollowingUsername) {
-  return f('/user/following/{username}', params, 'delete')
+export function deleteUserFollowingUsername(p: DeleteUserFollowingUsername) {
+  return f('/user/following/{username}', p, 'delete')
 }
 
 // 检查授权用户是否 star 了一个仓库
-export function getUserStarredOwnerRepo(params: GetUserStarredOwnerRepo) {
-  return f('/user/starred/{owner}/{repo}', params)
+export function getUserStarredOwnerRepo(p: GetUserStarredOwnerRepo) {
+  return f('/user/starred/{owner}/{repo}', p)
 }
 
 // star 一个仓库
-export function putUserStarredOwnerRepo(params: PutUserStarredOwnerRepo) {
-  return f('/user/starred/{owner}/{repo}', params, 'put')
+export function putUserStarredOwnerRepo(p: PutUserStarredOwnerRepo) {
+  return f('/user/starred/{owner}/{repo}', p, 'put')
 }
 
 // 取消 star 一个仓库
-export function deleteUserStarredOwnerRepo(params: DeleteUserStarredOwnerRepo) {
-  return f('/user/starred/{owner}/{repo}', params, 'delete')
+export function deleteUserStarredOwnerRepo(p: DeleteUserStarredOwnerRepo) {
+  return f('/user/starred/{owner}/{repo}', p, 'delete')
 }
 
 // 检查授权用户是否 watch 了一个仓库
-export function getUserSubscriptionsOwnerRepo(params: GetUserSubscriptionsOwnerRepo) {
-  return f('/user/subscriptions/{owner}/{repo}', params)
+export function getUserSubscriptionsOwnerRepo(p: GetUserSubscriptionsOwnerRepo) {
+  return f('/user/subscriptions/{owner}/{repo}', p)
 }
 
 // watch 一个仓库
-export function putUserSubscriptionsOwnerRepo(params: PutUserSubscriptionsOwnerRepo) {
-  return f('/user/subscriptions/{owner}/{repo}', params, 'put')
+export function putUserSubscriptionsOwnerRepo(p: PutUserSubscriptionsOwnerRepo) {
+  return f('/user/subscriptions/{owner}/{repo}', p, 'put')
 }
 
 // 取消 watch 一个仓库
-export function deleteUserSubscriptionsOwnerRepo(params: DeleteUserSubscriptionsOwnerRepo) {
-  return f('/user/subscriptions/{owner}/{repo}', params, 'delete')
+export function deleteUserSubscriptionsOwnerRepo(p: DeleteUserSubscriptionsOwnerRepo) {
+  return f('/user/subscriptions/{owner}/{repo}', p, 'delete')
 }
 
 // 获取代码片段
-export function getGists(params: GetGists): AxiosPromise<Code[]> {
-  return f('/gists', params)
+export function getGists(p: GetGists): AxiosPromise<Code[]> {
+  return f('/gists', p)
 }
 
 // 创建代码片段
-export function postGists(params: PostGists): AxiosPromise<CodeForksHistory[]> {
-  return f('/gists', params, 'post')
+export function postGists(p: PostGists): AxiosPromise<CodeForksHistory[]> {
+  return f('/gists', p, 'post')
 }
 
 // 获取用户Star的代码片段
-export function getGistsStarred(params: GetGistsStarred): AxiosPromise<Code[]> {
-  return f('/gists/starred', params)
+export function getGistsStarred(p: GetGistsStarred): AxiosPromise<Code[]> {
+  return f('/gists/starred', p)
 }
 
 // 获取代码片段的评论
-export function getGistsGistIdComments(params: GetGistsGistIdComments): AxiosPromise<CodeComment[]> {
-  return f('/gists/{gist_id}/comments', params)
+export function getGistsGistIdComments(p: GetGistsGistIdComments): AxiosPromise<CodeComment[]> {
+  return f('/gists/{gist_id}/comments', p)
 }
 
 // 增加代码片段的评论
-export function postGistsGistIdComments(params: PostGistsGistIdComments): AxiosPromise<CodeComment> {
-  return f('/gists/{gist_id}/comments', params, 'post')
+export function postGistsGistIdComments(p: PostGistsGistIdComments): AxiosPromise<CodeComment> {
+  return f('/gists/{gist_id}/comments', p, 'post')
 }
 
 // 获取单条代码片段的评论
-export function getGistsGistIdCommentsId(params: GetGistsGistIdCommentsId): AxiosPromise<CodeComment> {
-  return f('/gists/{gist_id}/comments/{id}', params)
+export function getGistsGistIdCommentsId(p: GetGistsGistIdCommentsId): AxiosPromise<CodeComment> {
+  return f('/gists/{gist_id}/comments/{id}', p)
 }
 
 // 修改代码片段的评论
-export function patchGistsGistIdCommentsId(params: PatchGistsGistIdCommentsId): AxiosPromise<CodeComment> {
-  return f('/gists/{gist_id}/comments/{id}', params, 'patch')
+export function patchGistsGistIdCommentsId(p: PatchGistsGistIdCommentsId): AxiosPromise<CodeComment> {
+  return f('/gists/{gist_id}/comments/{id}', p, 'patch')
 }
 
 // 删除代码片段的评论
-export function deleteGistsGistIdCommentsId(params: DeleteGistsGistIdCommentsId) {
-  return f('/gists/{gist_id}/comments/{id}', params, 'delete')
+export function deleteGistsGistIdCommentsId(p: DeleteGistsGistIdCommentsId) {
+  return f('/gists/{gist_id}/comments/{id}', p, 'delete')
 }
 
 // 获取单条代码片段
-export function getGistsId(params: GetGistsId): AxiosPromise<CodeForksHistory> {
-  return f('/gists/{id}', params)
+export function getGistsId(p: GetGistsId): AxiosPromise<CodeForksHistory> {
+  return f('/gists/{id}', p)
 }
 
 // 修改代码片段
-export function patchGistsId(params: PatchGistsId): AxiosPromise<CodeForksHistory> {
-  return f('/gists/{id}', params, 'patch')
+export function patchGistsId(p: PatchGistsId): AxiosPromise<CodeForksHistory> {
+  return f('/gists/{id}', p, 'patch')
 }
 
 // 删除指定代码片段
-export function deleteGistsId(params: DeleteGistsId) {
-  return f('/gists/{id}', params, 'delete')
+export function deleteGistsId(p: DeleteGistsId) {
+  return f('/gists/{id}', p, 'delete')
 }
 
 // 获取代码片段的commit
-export function getGistsIdCommits(params: GetGistsIdCommits): AxiosPromise<CodeForksHistory> {
-  return f('/gists/{id}/commits', params)
+export function getGistsIdCommits(p: GetGistsIdCommits): AxiosPromise<CodeForksHistory> {
+  return f('/gists/{id}/commits', p)
 }
 
 // Star代码片段
-export function putGistsIdStar(params: PutGistsIdStar) {
-  return f('/gists/{id}/star', params, 'put')
+export function putGistsIdStar(p: PutGistsIdStar) {
+  return f('/gists/{id}/star', p, 'put')
 }
 
 // 取消Star代码片段
-export function deleteGistsIdStar(params: DeleteGistsIdStar) {
-  return f('/gists/{id}/star', params, 'delete')
+export function deleteGistsIdStar(p: DeleteGistsIdStar) {
+  return f('/gists/{id}/star', p, 'delete')
 }
 
 // 判断代码片段是否已Star
-export function getGistsIdStar(params: GetGistsIdStar) {
-  return f('/gists/{id}/star', params)
+export function getGistsIdStar(p: GetGistsIdStar) {
+  return f('/gists/{id}/star', p)
 }
 
 // Fork代码片段
-export function postGistsIdForks(params: PostGistsIdForks) {
-  return f('/gists/{id}/forks', params, 'post')
+export function postGistsIdForks(p: PostGistsIdForks) {
+  return f('/gists/{id}/forks', p, 'post')
 }
 
 // 获取 Fork 了指定代码片段的列表
-export function getGistsIdForks(params: GetGistsIdForks): AxiosPromise<CodeForks> {
-  return f('/gists/{id}/forks', params)
+export function getGistsIdForks(p: GetGistsIdForks): AxiosPromise<CodeForks> {
+  return f('/gists/{id}/forks', p)
 }
 
 // 列出用户所属的组织
-export function getUsersUsernameOrgs(params: GetUsersUsernameOrgs): AxiosPromise<Group[]> {
-  return f('/users/{username}/orgs', params)
+export function getUsersUsernameOrgs(p: GetUsersUsernameOrgs): AxiosPromise<Group[]> {
+  return f('/users/{username}/orgs', p)
 }
 
 // 创建组织
-export function postUsersOrganization(params: PostUsersOrganization): AxiosPromise<Group> {
-  return f('/users/organization', params, 'post')
+export function postUsersOrganization(p: PostUsersOrganization): AxiosPromise<Group> {
+  return f('/users/organization', p, 'post')
 }
 
 // 获取某个用户的公开仓库
-export function getUsersUsernameRepos(params: GetUsersUsernameRepos): AxiosPromise<Project> {
-  return f('/users/{username}/repos', params)
+export function getUsersUsernameRepos(p: GetUsersUsernameRepos): AxiosPromise<Project> {
+  return f('/users/{username}/repos', p)
 }
 
 // 获取一个用户
-export function getUsersUsername(params: GetUsersUsername): AxiosPromise<UserInfo> {
-  return f('/users/{username}', params)
+export function getUsersUsername(p: GetUsersUsername): AxiosPromise<UserInfo> {
+  return f('/users/{username}', p)
 }
 
 // 列出指定用户的关注者
-export function getUsersUsernameFollowers(params: GetUsersUsernameFollowers): AxiosPromise<UserBasic[]> {
-  return f('/users/{username}/followers', params)
+export function getUsersUsernameFollowers(p: GetUsersUsernameFollowers): AxiosPromise<UserBasic[]> {
+  return f('/users/{username}/followers', p)
 }
 
 // 列出指定用户正在关注的用户
-export function getUsersUsernameFollowing(params: GetUsersUsernameFollowing): AxiosPromise<UserBasic[]> {
-  return f('/users/{username}/following', params)
+export function getUsersUsernameFollowing(p: GetUsersUsernameFollowing): AxiosPromise<UserBasic[]> {
+  return f('/users/{username}/following', p)
 }
 
 // 检查指定用户是否关注目标用户
-export function getUsersUsernameFollowingTargetUser(params: GetUsersUsernameFollowingTargetUser) {
-  return f('/users/{username}/following/{target_user}', params)
+export function getUsersUsernameFollowingTargetUser(p: GetUsersUsernameFollowingTargetUser) {
+  return f('/users/{username}/following/{target_user}', p)
 }
 
 // 列出指定用户的所有公钥
-export function getUsersUsernameKeys(params: GetUsersUsernameKeys): AxiosPromise<SSHKeyBasic[]> {
-  return f('/users/{username}/keys', params)
+export function getUsersUsernameKeys(p: GetUsersUsernameKeys): AxiosPromise<SSHKeyBasic[]> {
+  return f('/users/{username}/keys', p)
 }
 
 // 列出用户 star 了的仓库
-export function getUsersUsernameStarred(params: GetUsersUsernameStarred): AxiosPromise<Project[]> {
-  return f('/users/{username}/starred', params)
+export function getUsersUsernameStarred(p: GetUsersUsernameStarred): AxiosPromise<Project[]> {
+  return f('/users/{username}/starred', p)
 }
 
 // 列出用户 watch 了的仓库
-export function getUsersUsernameSubscriptions(params: GetUsersUsernameSubscriptions): AxiosPromise<Project[]> {
-  return f('/users/{username}/subscriptions', params)
+export function getUsersUsernameSubscriptions(p: GetUsersUsernameSubscriptions): AxiosPromise<Project[]> {
+  return f('/users/{username}/subscriptions', p)
 }
 
 // 列出一个用户收到的动态
-export function getUsersUsernameReceivedEvents(params: GetUsersUsernameReceivedEvents): AxiosPromise<Event[]> {
-  return f('/users/{username}/received_events', params)
+export function getUsersUsernameReceivedEvents(p: GetUsersUsernameReceivedEvents): AxiosPromise<Event[]> {
+  return f('/users/{username}/received_events', p)
 }
 
 // 列出一个用户收到的公开动态
-export function getUsersUsernameReceivedEventsPublic(
-  params: GetUsersUsernameReceivedEventsPublic
-): AxiosPromise<Event[]> {
-  return f('/users/{username}/received_events/public', params)
+export function getUsersUsernameReceivedEventsPublic(p: GetUsersUsernameReceivedEventsPublic): AxiosPromise<Event[]> {
+  return f('/users/{username}/received_events/public', p)
 }
 
 // 列出用户的动态
-export function getUsersUsernameEvents(params: GetUsersUsernameEvents): AxiosPromise<Event[]> {
-  return f('/users/{username}/events', params)
+export function getUsersUsernameEvents(p: GetUsersUsernameEvents): AxiosPromise<Event[]> {
+  return f('/users/{username}/events', p)
 }
 
 // 列出用户的公开动态
-export function getUsersUsernameEventsPublic(params: GetUsersUsernameEventsPublic): AxiosPromise<Event[]> {
-  return f('/users/{username}/events/public', params)
+export function getUsersUsernameEventsPublic(p: GetUsersUsernameEventsPublic): AxiosPromise<Event[]> {
+  return f('/users/{username}/events/public', p)
 }
 
 // 列出用户所属组织的动态
-export function getUsersUsernameEventsOrgsOrg(params: GetUsersUsernameEventsOrgsOrg): AxiosPromise<Event[]> {
-  return f('/users/{username}/events/orgs/{org}', params)
+export function getUsersUsernameEventsOrgsOrg(p: GetUsersUsernameEventsOrgsOrg): AxiosPromise<Event[]> {
+  return f('/users/{username}/events/orgs/{org}', p)
 }
 
 // 获取一个组织
-export function getOrgsOrg(params: GetOrgsOrg): AxiosPromise<Group> {
-  return f('/orgs/{org}', params)
+export function getOrgsOrg(p: GetOrgsOrg): AxiosPromise<Group> {
+  return f('/orgs/{org}', p)
 }
 
 // 更新授权用户所管理的组织资料
-export function patchOrgsOrg(params: PatchOrgsOrg): AxiosPromise<GroupDetail> {
-  return f('/orgs/{org}', params, 'patch')
+export function patchOrgsOrg(p: PatchOrgsOrg): AxiosPromise<GroupDetail> {
+  return f('/orgs/{org}', p, 'patch')
 }
 
 // 列出一个组织的所有成员
-export function getOrgsOrgMembers(params: GetOrgsOrgMembers): AxiosPromise<UserBasic[]> {
-  return f('/orgs/{org}/members', params)
+export function getOrgsOrgMembers(p: GetOrgsOrgMembers): AxiosPromise<UserBasic[]> {
+  return f('/orgs/{org}/members', p)
 }
 
 // 列出指定组织的所有关注者
-export function getOrgsOrgFollowers(params: GetOrgsOrgFollowers): AxiosPromise<GroupFollowers[]> {
-  return f('/orgs/{org}/followers', params)
+export function getOrgsOrgFollowers(p: GetOrgsOrgFollowers): AxiosPromise<GroupFollowers[]> {
+  return f('/orgs/{org}/followers', p)
 }
 
 // 获取当前用户某个组织的Issues
-export function getOrgsOrgIssues(params: GetOrgsOrgIssues): AxiosPromise<Issue[]> {
-  return f('/orgs/{org}/issues', params)
+export function getOrgsOrgIssues(p: GetOrgsOrgIssues): AxiosPromise<Issue[]> {
+  return f('/orgs/{org}/issues', p)
 }
 
 // 获取一个组织的仓库
-export function getOrgsOrgRepos(params: GetOrgsOrgRepos): AxiosPromise<Project> {
-  return f('/orgs/{org}/repos', params)
+export function getOrgsOrgRepos(p: GetOrgsOrgRepos): AxiosPromise<Project> {
+  return f('/orgs/{org}/repos', p)
 }
 
 // 创建组织仓库
-export function postOrgsOrgRepos(params: PostOrgsOrgRepos): AxiosPromise<Project> {
-  return f('/orgs/{org}/repos', params, 'post')
+export function postOrgsOrgRepos(p: PostOrgsOrgRepos): AxiosPromise<Project> {
+  return f('/orgs/{org}/repos', p, 'post')
 }
 
 // 移除授权用户所管理组织中的成员
-export function deleteOrgsOrgMembershipsUsername(params: DeleteOrgsOrgMembershipsUsername) {
-  return f('/orgs/{org}/memberships/{username}', params, 'delete')
+export function deleteOrgsOrgMembershipsUsername(p: DeleteOrgsOrgMembershipsUsername) {
+  return f('/orgs/{org}/memberships/{username}', p, 'delete')
 }
 
 // 获取授权用户所属组织的一个成员
-export function getOrgsOrgMembershipsUsername(params: GetOrgsOrgMembershipsUsername): AxiosPromise<GroupMember> {
-  return f('/orgs/{org}/memberships/{username}', params)
+export function getOrgsOrgMembershipsUsername(p: GetOrgsOrgMembershipsUsername): AxiosPromise<GroupMember> {
+  return f('/orgs/{org}/memberships/{username}', p)
 }
 
 // 增加或更新授权用户所管理组织的成员
-export function putOrgsOrgMembershipsUsername(params: PutOrgsOrgMembershipsUsername): AxiosPromise<GroupMember> {
-  return f('/orgs/{org}/memberships/{username}', params, 'put')
+export function putOrgsOrgMembershipsUsername(p: PutOrgsOrgMembershipsUsername): AxiosPromise<GroupMember> {
+  return f('/orgs/{org}/memberships/{username}', p, 'put')
 }
 
 // 列出组织的公开动态
-export function getOrgsOrgEvents(params: GetOrgsOrgEvents): AxiosPromise<Event[]> {
-  return f('/orgs/{org}/events', params)
+export function getOrgsOrgEvents(p: GetOrgsOrgEvents): AxiosPromise<Event[]> {
+  return f('/orgs/{org}/events', p)
 }
 
 // 获取当前授权用户的所有Issues
-export function getIssues(params: GetIssues): AxiosPromise<Issue[]> {
-  return f('/issues', params)
+export function getIssues(p: GetIssues): AxiosPromise<Issue[]> {
+  return f('/issues', p)
 }
 
 // 获取某个企业的所有Issues
-export function getEnterprisesEnterpriseIssues(params: GetEnterprisesEnterpriseIssues): AxiosPromise<Issue[]> {
-  return f('/enterprises/{enterprise}/issues', params)
+export function getEnterprisesEnterpriseIssues(p: GetEnterprisesEnterpriseIssues): AxiosPromise<Issue[]> {
+  return f('/enterprises/{enterprise}/issues', p)
 }
 
 // 获取一个企业
-export function getEnterprisesEnterprise(params: GetEnterprisesEnterprise): AxiosPromise<EnterpriseBasic> {
-  return f('/enterprises/{enterprise}', params)
+export function getEnterprisesEnterprise(p: GetEnterprisesEnterprise): AxiosPromise<EnterpriseBasic> {
+  return f('/enterprises/{enterprise}', p)
 }
 
 // 列出企业的所有成员
-export function getEnterprisesEnterpriseMembers(
-  params: GetEnterprisesEnterpriseMembers
-): AxiosPromise<EnterpriseMember[]> {
-  return f('/enterprises/{enterprise}/members', params)
+export function getEnterprisesEnterpriseMembers(p: GetEnterprisesEnterpriseMembers): AxiosPromise<EnterpriseMember[]> {
+  return f('/enterprises/{enterprise}/members', p)
 }
 
 // 添加或邀请企业成员
-export function postEnterprisesEnterpriseMembers(params: PostEnterprisesEnterpriseMembers) {
-  return f('/enterprises/{enterprise}/members', params, 'post')
+export function postEnterprisesEnterpriseMembers(p: PostEnterprisesEnterpriseMembers) {
+  return f('/enterprises/{enterprise}/members', p, 'post')
 }
 
 // 获取企业成员信息(通过用户名/邮箱)
-export function getEnterprisesEnterpriseMembersSearch(params: GetEnterprisesEnterpriseMembersSearch) {
-  return f('/enterprises/{enterprise}/members/search', params)
+export function getEnterprisesEnterpriseMembersSearch(p: GetEnterprisesEnterpriseMembersSearch) {
+  return f('/enterprises/{enterprise}/members/search', p)
 }
 
 // 某个周报评论列表
 export function getEnterprisesEnterpriseWeekReportsIdComments(
-  params: GetEnterprisesEnterpriseWeekReportsIdComments
+  p: GetEnterprisesEnterpriseWeekReportsIdComments
 ): AxiosPromise<Note[]> {
-  return f('/enterprises/{enterprise}/week_reports/{id}/comments', params)
+  return f('/enterprises/{enterprise}/week_reports/{id}/comments', p)
 }
 
 // 评论周报
 export function postEnterprisesEnterpriseWeekReportsIdComment(
-  params: PostEnterprisesEnterpriseWeekReportsIdComment
+  p: PostEnterprisesEnterpriseWeekReportsIdComment
 ): AxiosPromise<Note> {
-  return f('/enterprises/{enterprise}/week_reports/{id}/comment', params, 'post')
+  return f('/enterprises/{enterprise}/week_reports/{id}/comment', p, 'post')
 }
 
 // 删除周报某个评论
 export function deleteEnterprisesEnterpriseWeekReportsReportIdCommentsId(
-  params: DeleteEnterprisesEnterpriseWeekReportsReportIdCommentsId
+  p: DeleteEnterprisesEnterpriseWeekReportsReportIdCommentsId
 ) {
-  return f('/enterprises/{enterprise}/week_reports/{report_id}/comments/{id}', params, 'delete')
+  return f('/enterprises/{enterprise}/week_reports/{report_id}/comments/{id}', p, 'delete')
 }
 
 // 个人周报列表
 export function getEnterprisesEnterpriseUsersUsernameWeekReports(
-  params: GetEnterprisesEnterpriseUsersUsernameWeekReports
+  p: GetEnterprisesEnterpriseUsersUsernameWeekReports
 ): AxiosPromise<WeekReport[]> {
-  return f('/enterprises/{enterprise}/users/{username}/week_reports', params)
+  return f('/enterprises/{enterprise}/users/{username}/week_reports', p)
 }
 
 // 企业成员周报列表
 export function getEnterprisesEnterpriseWeekReports(
-  params: GetEnterprisesEnterpriseWeekReports
+  p: GetEnterprisesEnterpriseWeekReports
 ): AxiosPromise<WeekReport[]> {
-  return f('/enterprises/{enterprise}/week_reports', params)
+  return f('/enterprises/{enterprise}/week_reports', p)
 }
 
 // 周报详情
 export function getEnterprisesEnterpriseWeekReportsId(
-  params: GetEnterprisesEnterpriseWeekReportsId
+  p: GetEnterprisesEnterpriseWeekReportsId
 ): AxiosPromise<WeekReport> {
-  return f('/enterprises/{enterprise}/week_reports/{id}', params)
+  return f('/enterprises/{enterprise}/week_reports/{id}', p)
 }
 
 // 编辑周报
 export function patchEnterprisesEnterpriseWeekReportId(
-  params: PatchEnterprisesEnterpriseWeekReportId
+  p: PatchEnterprisesEnterpriseWeekReportId
 ): AxiosPromise<WeekReport> {
-  return f('/enterprises/{enterprise}/week_report/{id}', params, 'patch')
+  return f('/enterprises/{enterprise}/week_report/{id}', p, 'patch')
 }
 
 // 新建周报
-export function postEnterprisesEnterpriseWeekReport(
-  params: PostEnterprisesEnterpriseWeekReport
-): AxiosPromise<WeekReport> {
-  return f('/enterprises/{enterprise}/week_report', params, 'post')
+export function postEnterprisesEnterpriseWeekReport(p: PostEnterprisesEnterpriseWeekReport): AxiosPromise<WeekReport> {
+  return f('/enterprises/{enterprise}/week_report', p, 'post')
 }
 
 // 获取企业的某个Issue
-export function getEnterprisesEnterpriseIssuesNumber(
-  params: GetEnterprisesEnterpriseIssuesNumber
-): AxiosPromise<Issue> {
-  return f('/enterprises/{enterprise}/issues/{number}', params)
+export function getEnterprisesEnterpriseIssuesNumber(p: GetEnterprisesEnterpriseIssuesNumber): AxiosPromise<Issue> {
+  return f('/enterprises/{enterprise}/issues/{number}', p)
 }
 
 // 更新企业的某个Issue
-export function patchEnterprisesEnterpriseIssuesNumber(
-  params: PatchEnterprisesEnterpriseIssuesNumber
-): AxiosPromise<Issue> {
-  return f('/enterprises/{enterprise}/issues/{number}', params, 'patch')
+export function patchEnterprisesEnterpriseIssuesNumber(p: PatchEnterprisesEnterpriseIssuesNumber): AxiosPromise<Issue> {
+  return f('/enterprises/{enterprise}/issues/{number}', p, 'patch')
 }
 
 // 获取企业 issue 关联的 Pull Requests
 export function getEnterprisesEnterpriseIssuesNumberPullRequests(
-  params: GetEnterprisesEnterpriseIssuesNumberPullRequests
+  p: GetEnterprisesEnterpriseIssuesNumberPullRequests
 ): AxiosPromise<PullRequest[]> {
-  return f('/enterprises/{enterprise}/issues/{number}/pull_requests', params)
+  return f('/enterprises/{enterprise}/issues/{number}/pull_requests', p)
 }
 
 // 获取企业某个Issue所有评论
 export function getEnterprisesEnterpriseIssuesNumberComments(
-  params: GetEnterprisesEnterpriseIssuesNumberComments
+  p: GetEnterprisesEnterpriseIssuesNumberComments
 ): AxiosPromise<Note[]> {
-  return f('/enterprises/{enterprise}/issues/{number}/comments', params)
+  return f('/enterprises/{enterprise}/issues/{number}/comments', p)
 }
 
 // 获取企业某个Issue所有标签
 export function getEnterprisesEnterpriseIssuesNumberLabels(
-  params: GetEnterprisesEnterpriseIssuesNumberLabels
+  p: GetEnterprisesEnterpriseIssuesNumberLabels
 ): AxiosPromise<Label[]> {
-  return f('/enterprises/{enterprise}/issues/{number}/labels', params)
+  return f('/enterprises/{enterprise}/issues/{number}/labels', p)
 }
 
 // 获取企业所有标签
-export function getEnterprisesEnterpriseLabels(params: GetEnterprisesEnterpriseLabels): AxiosPromise<Label[]> {
-  return f('/enterprises/{enterprise}/labels', params)
+export function getEnterprisesEnterpriseLabels(p: GetEnterprisesEnterpriseLabels): AxiosPromise<Label[]> {
+  return f('/enterprises/{enterprise}/labels', p)
 }
 
 // 获取企业某个标签
-export function getEnterprisesEnterpriseLabelsName(params: GetEnterprisesEnterpriseLabelsName): AxiosPromise<Label> {
-  return f('/enterprises/{enterprise}/labels/{name}', params)
+export function getEnterprisesEnterpriseLabelsName(p: GetEnterprisesEnterpriseLabelsName): AxiosPromise<Label> {
+  return f('/enterprises/{enterprise}/labels/{name}', p)
 }
 
 // 获取企业的所有仓库
-export function getEnterprisesEnterpriseRepos(params: GetEnterprisesEnterpriseRepos): AxiosPromise<Project> {
-  return f('/enterprises/{enterprise}/repos', params)
+export function getEnterprisesEnterpriseRepos(p: GetEnterprisesEnterpriseRepos): AxiosPromise<Project> {
+  return f('/enterprises/{enterprise}/repos', p)
 }
 
 // 创建企业仓库
-export function postEnterprisesEnterpriseRepos(params: PostEnterprisesEnterpriseRepos): AxiosPromise<Project> {
-  return f('/enterprises/{enterprise}/repos', params, 'post')
+export function postEnterprisesEnterpriseRepos(p: PostEnterprisesEnterpriseRepos): AxiosPromise<Project> {
+  return f('/enterprises/{enterprise}/repos', p, 'post')
 }
 
 // 获取企业的一个成员
 export function getEnterprisesEnterpriseMembersUsername(
-  params: GetEnterprisesEnterpriseMembersUsername
+  p: GetEnterprisesEnterpriseMembersUsername
 ): AxiosPromise<EnterpriseMember> {
-  return f('/enterprises/{enterprise}/members/{username}', params)
+  return f('/enterprises/{enterprise}/members/{username}', p)
 }
 
 // 移除企业成员
-export function deleteEnterprisesEnterpriseMembersUsername(params: DeleteEnterprisesEnterpriseMembersUsername) {
-  return f('/enterprises/{enterprise}/members/{username}', params, 'delete')
+export function deleteEnterprisesEnterpriseMembersUsername(p: DeleteEnterprisesEnterpriseMembersUsername) {
+  return f('/enterprises/{enterprise}/members/{username}', p, 'delete')
 }
 
 // 修改企业成员权限或备注
 export function putEnterprisesEnterpriseMembersUsername(
-  params: PutEnterprisesEnterpriseMembersUsername
+  p: PutEnterprisesEnterpriseMembersUsername
 ): AxiosPromise<EnterpriseMember> {
-  return f('/enterprises/{enterprise}/members/{username}', params, 'put')
+  return f('/enterprises/{enterprise}/members/{username}', p, 'put')
 }
 
 // 列出可使用的 .gitignore 模板
-export function getGitignoreTemplates(params: GetGitignoreTemplates) {
-  return f('/gitignore/templates', params)
+export function getGitignoreTemplates(p: GetGitignoreTemplates) {
+  return f('/gitignore/templates', p)
 }
 
 // 获取一个 .gitignore 模板
-export function getGitignoreTemplatesName(params: GetGitignoreTemplatesName) {
-  return f('/gitignore/templates/{name}', params)
+export function getGitignoreTemplatesName(p: GetGitignoreTemplatesName) {
+  return f('/gitignore/templates/{name}', p)
 }
 
 // 获取一个 .gitignore 模板原始文件
-export function getGitignoreTemplatesNameRaw(params: GetGitignoreTemplatesNameRaw) {
-  return f('/gitignore/templates/{name}/raw', params)
+export function getGitignoreTemplatesNameRaw(p: GetGitignoreTemplatesNameRaw) {
+  return f('/gitignore/templates/{name}/raw', p)
 }
 
 // 列出可使用的开源许可协议
-export function getLicenses(params: GetLicenses) {
-  return f('/licenses', params)
+export function getLicenses(p: GetLicenses) {
+  return f('/licenses', p)
 }
 
 // 获取一个开源许可协议
-export function getLicensesLicense(params: GetLicensesLicense) {
-  return f('/licenses/{license}', params)
+export function getLicensesLicense(p: GetLicensesLicense) {
+  return f('/licenses/{license}', p)
 }
 
 // 获取一个开源许可协议原始文件
-export function getLicensesLicenseRaw(params: GetLicensesLicenseRaw) {
-  return f('/licenses/{license}/raw', params)
+export function getLicensesLicenseRaw(p: GetLicensesLicenseRaw) {
+  return f('/licenses/{license}/raw', p)
 }
 
 // 渲染 Markdown 文本
-export function postMarkdown(params: PostMarkdown) {
-  return f('/markdown', params, 'post')
+export function postMarkdown(p: PostMarkdown) {
+  return f('/markdown', p, 'post')
 }
 
 // 企业Pull Reuqest 列表
 export function getEnterpriseEnterprisePullRequests(
-  params: GetEnterpriseEnterprisePullRequests
+  p: GetEnterpriseEnterprisePullRequests
 ): AxiosPromise<PullRequest[]> {
-  return f('/enterprise/{enterprise}/pull_requests', params)
+  return f('/enterprise/{enterprise}/pull_requests', p)
 }
 
 // 列出仓库的所有公开动态
-export function getNetworksOwnerRepoEvents(params: GetNetworksOwnerRepoEvents): AxiosPromise<Event[]> {
-  return f('/networks/{owner}/{repo}/events', params)
+export function getNetworksOwnerRepoEvents(p: GetNetworksOwnerRepoEvents): AxiosPromise<Event[]> {
+  return f('/networks/{owner}/{repo}/events', p)
 }
 
 // 搜索仓库
-export function getSearchRepositories(params: GetSearchRepositories): AxiosPromise<Project[]> {
-  return f('/search/repositories', params)
+export function getSearchRepositories(p: GetSearchRepositories): AxiosPromise<Project[]> {
+  return f('/search/repositories', p)
 }
 
 // 搜索 Issues
-export function getSearchIssues(params: GetSearchIssues): AxiosPromise<Issue[]> {
-  return f('/search/issues', params)
+export function getSearchIssues(p: GetSearchIssues): AxiosPromise<Issue[]> {
+  return f('/search/issues', p)
 }
 
 // 搜索用户
-export function getSearchUsers(params: GetSearchUsers): AxiosPromise<User[]> {
-  return f('/search/users', params)
+export function getSearchUsers(p: GetSearchUsers): AxiosPromise<User[]> {
+  return f('/search/users', p)
 }
 
 // 获取授权用户的通知数
-export function getNotificationsCount(params: GetNotificationsCount): AxiosPromise<UserNotificationCount> {
-  return f('/notifications/count', params)
+export function getNotificationsCount(p: GetNotificationsCount): AxiosPromise<UserNotificationCount> {
+  return f('/notifications/count', p)
 }
 
 // 列出授权用户的所有通知
-export function getNotificationsThreads(params: GetNotificationsThreads): AxiosPromise<UserNotificationList[]> {
-  return f('/notifications/threads', params)
+export function getNotificationsThreads(p: GetNotificationsThreads): AxiosPromise<UserNotificationList[]> {
+  return f('/notifications/threads', p)
 }
 
 // 标记所有通知为已读
-export function putNotificationsThreads(params: PutNotificationsThreads) {
-  return f('/notifications/threads', params, 'put')
+export function putNotificationsThreads(p: PutNotificationsThreads) {
+  return f('/notifications/threads', p, 'put')
 }
 
 // 获取一条通知
-export function getNotificationsThreadsId(params: GetNotificationsThreadsId): AxiosPromise<UserNotification> {
-  return f('/notifications/threads/{id}', params)
+export function getNotificationsThreadsId(p: GetNotificationsThreadsId): AxiosPromise<UserNotification> {
+  return f('/notifications/threads/{id}', p)
 }
 
 // 标记一条通知为已读
-export function patchNotificationsThreadsId(params: PatchNotificationsThreadsId) {
-  return f('/notifications/threads/{id}', params, 'patch')
+export function patchNotificationsThreadsId(p: PatchNotificationsThreadsId) {
+  return f('/notifications/threads/{id}', p, 'patch')
 }
 
 // 列出授权用户的所有私信
-export function getNotificationsMessages(params: GetNotificationsMessages): AxiosPromise<UserMessageList[]> {
-  return f('/notifications/messages', params)
+export function getNotificationsMessages(p: GetNotificationsMessages): AxiosPromise<UserMessageList[]> {
+  return f('/notifications/messages', p)
 }
 
 // 标记所有私信为已读
-export function putNotificationsMessages(params: PutNotificationsMessages) {
-  return f('/notifications/messages', params, 'put')
+export function putNotificationsMessages(p: PutNotificationsMessages) {
+  return f('/notifications/messages', p, 'put')
 }
 
 // 发送私信给指定用户
-export function postNotificationsMessages(params: PostNotificationsMessages): AxiosPromise<UserMessage> {
-  return f('/notifications/messages', params, 'post')
+export function postNotificationsMessages(p: PostNotificationsMessages): AxiosPromise<UserMessage> {
+  return f('/notifications/messages', p, 'post')
 }
 
 // 获取一条私信
-export function getNotificationsMessagesId(params: GetNotificationsMessagesId): AxiosPromise<UserMessage> {
-  return f('/notifications/messages/{id}', params)
+export function getNotificationsMessagesId(p: GetNotificationsMessagesId): AxiosPromise<UserMessage> {
+  return f('/notifications/messages/{id}', p)
 }
 
 // 标记一条私信为已读
-export function patchNotificationsMessagesId(params: PatchNotificationsMessagesId) {
-  return f('/notifications/messages/{id}', params, 'patch')
+export function patchNotificationsMessagesId(p: PatchNotificationsMessagesId) {
+  return f('/notifications/messages/{id}', p, 'patch')
 }
 
 // 获取授权用户的全部邮箱
-export function getEmails(params: GetEmails): AxiosPromise<UserEmail> {
-  return f('/emails', params)
+export function getEmails(p: GetEmails): AxiosPromise<UserEmail> {
+  return f('/emails', p)
 }
 
 // 列出可使用的 Emoji
-export function getEmojis(params: GetEmojis) {
-  return f('/emojis', params)
+export function getEmojis(p: GetEmojis) {
+  return f('/emojis', p)
 }

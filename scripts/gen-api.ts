@@ -62,10 +62,10 @@ function parseMethod(item, url: string, method: string) {
   const res = parseSchema(item.responses?.['200']?.schema ?? item.responses?.['201']?.schema)
 
   return `// ${trim(item.description)}
-export function ${operationId}(params: ${reqName})${
+export function ${operationId}(p: ${reqName})${
     res ? `: AxiosPromise<${res.type}${res.array || responseArray[url]?.[method] ? '[]' : ''}>` : ''
   } {
-  return f('${url}', params${method.toLowerCase() !== 'get' ? `, '${method}'` : ''})
+  return f('${url}', p${method.toLowerCase() !== 'get' ? `, '${method}'` : ''})
 }`
 }
 
