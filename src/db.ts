@@ -77,13 +77,12 @@ export class DB {
 }
 
 export class Table<TB = any> {
-  private readonly DEFAULT_PER_PAGE = 50 // 默认查询数量（无 limit 的时候起作用）
+  private readonly DEFAULT_PER_PAGE = 50 // 推荐每条查询数量，每次50条左右最优
   private readonly MAX_PER_PAGE = 100 // 每页最大查询数量（gitee限制）
   public MAX_THREAD = 10 // 最大并发数
 
   readonly props: TableProps
   private readonly filter: (value: DTO<TB>) => boolean
-  // private comments: number // todo
 
   constructor(props: TableProps, where?: (value: DTO<TB>) => boolean) {
     this.props = props
@@ -170,18 +169,16 @@ export class Table<TB = any> {
 
     // 返回结果带上当前页，可传入起始页接着查
     let page = options.startPage || 1
+    const list: DTO<T>[] = []
 
-    // per_page 与 limit 相关，有 filter 则 直接拉满，最大 100，默认 50 条
-    const per_page = hasFilter ? this.MAX_PER_PAGE : Math.min(this.MAX_PER_PAGE, options.limit || this.DEFAULT_PER_PAGE)
-
-    // total(0,1) limit(0,1)
+    // 计算 count 的值: comments(0|1) limit(0|1)
     // 0,0(更新 table 的 comments 数据，再判断)  0,1(count = limit)
-    // 1,0(查全部, count = total)  1,1(count = hasFilter ? total : Math.min(total, limit))
-    let count // 查询总数
-    if (!this.props.comments && !options.limit) {
+    // 1,0(count = comments)  1,1(count = hasFilter ? comments : Math.min(comments, limit))
+    if (!this.props.comments) {
       // 更新 table 的 comments 数据
       this.props.comments = await this.count()
     }
+    let count // 查询的总数
     if (!this.props.comments) {
       count = options.limit
     } else if (!options.limit) {
@@ -189,12 +186,15 @@ export class Table<TB = any> {
     } else {
       count = hasFilter ? this.props.comments : Math.min(this.props.comments, options.limit)
     }
+
+    // 在并发一次的情况下，尽量拉满线程
+    const per_page = Math.min(this.MAX_PER_PAGE, Math.max(this.DEFAULT_PER_PAGE, count / this.MAX_THREAD))
+    // 并发线程数
     const thread = Math.min(this.MAX_THREAD, Math.ceil(count / per_page))
 
-    // console.log(`this.props.comments:${this.props.comments}, limit:${count}, thread:${thread}, per_page:${per_page}`)
+    // console.log(`this.props.comments:${this.props.comments}, count:${count}, thread:${thread}, per_page:${per_page}`)
 
-    const list: DTO<T>[] = []
-    while (true) {
+    while (thread) {
       const responses = await Promise.all(
         Array.from({length: thread}).map((_, i) =>
           getReposOwnerRepoIssuesNumberComments({number: this.props.number, page: page + i, per_page})
@@ -208,13 +208,13 @@ export class Table<TB = any> {
             if (options.limit > 0 && list.length >= options.limit) return {cur_page: page, list}
           }
         }
-        if (data.length < per_page) return {cur_page: page, list}
+        if (!data.length || data.length < per_page) return {cur_page: page, list}
 
         page++
       }
     }
 
-    // return {cur_page: page, list}
+    return {cur_page: page, list}
   }
 
   /**

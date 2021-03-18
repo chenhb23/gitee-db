@@ -9,22 +9,52 @@ registry({
 const db = new DB()
 
 declare const returnCitySN
-;(async () => {
-  const table = await db.table('count')
-  console.time('请求时间')
-  console.log(await table.findMany({limit: 171}))
-  console.timeEnd('请求时间')
 
-  // 1: 请求时间: 1977.415771484375 ms
-  // 2: 请求时间: 909.47314453125 ms
-  // 3: 请求时间: 733.2802734375 ms
-  // 4: 请求时间: 587.913818359375 ms
-  // 5: 请求时间: 495.075927734375 ms
-  // 6: 请求时间: 367.5419921875 ms
+window.onload = async () => {
+  const table = await db.table('count2')
+
+  // await Promise.all(
+  //   Array.from({length: 3}).map(() =>
+  //     table.insert({
+  //       ...returnCitySN,
+  //       r: Math.random(),
+  //     })
+  //   )
+  // )
 
   // await table.insert(returnCitySN)
   // const count = await table.count()
   // document.getElementById('city').innerText = returnCitySN.cname
   // document.getElementById('count').innerText = `${count}`
   // document.querySelector('.count-container').setAttribute('style', 'visibility: visible;')
-})()
+  //
+  // if (table.props.comments < 400) {
+  //   setTimeout(() => {
+  //     location.reload()
+  //   }, 1000)
+  // }
+
+  console.time('请求时间')
+  console.log(await table.findMany())
+  console.timeEnd('请求时间')
+}
+
+// ;(async () => {
+//   const table = await db.table('count')
+//   console.time('请求时间')
+//   console.log(await table.findMany())
+//   console.timeEnd('请求时间')
+//
+//   // 1: 请求时间: 1977.415771484375 ms
+//   // 2: 请求时间: 909.47314453125 ms
+//   // 3: 请求时间: 733.2802734375 ms
+//   // 4: 请求时间: 587.913818359375 ms
+//   // 5: 请求时间: 495.075927734375 ms
+//   // 6: 请求时间: 367.5419921875 ms
+//
+//   // await table.insert(returnCitySN)
+//   // const count = await table.count()
+//   // document.getElementById('city').innerText = returnCitySN.cname
+//   // document.getElementById('count').innerText = `${count}`
+//   // document.querySelector('.count-container').setAttribute('style', 'visibility: visible;')
+// })()
