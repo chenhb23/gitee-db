@@ -1,14 +1,61 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            border: 0;
+            font-size: 13px;
+        }
+
+        .icon {
+            width: 1em;
+            height: 1em;
+            vertical-align: -0.15em;
+            fill: currentColor;
+            overflow: hidden;
+        }
+
+        .index {
+            color: gray;
+            width: 300px;
+            margin: 70px auto 0;
+            padding: 16px;
+        }
+        .count-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            visibility: hidden;
+        }
+        #city {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        #count {
+            margin-left: 5px;
+        }
+    </style>
 </head>
+
 <body>
-<script src="test.ts"></script>
-看 <code>console.log()</code> ↓
+<script src="//at.alicdn.com/t/font_2427644_n37nq59m45.js"></script>
+<script src="https://pv.sohu.com/cityjson?ie=utf-8"></script>
+<script src="count.ts"></script>
+<div class="index">
+    <div id="city"></div>
+    <div class="count-container">
+        <svg class="icon" aria-hidden="true">
+            <use href="#icon-visit"></use>
+        </svg>
+        <span id="count"></span>
+    </div>
+</div>
 </body>
 </html>

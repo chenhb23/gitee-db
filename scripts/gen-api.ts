@@ -58,7 +58,7 @@ function parseMethod(item, url: string, method: string) {
   url = url.replace(/^\/v5/, '')
 
   const reqName = firstUpperCase(operationId)
-  getParametersInterface(item.parameters, firstUpperCase(operationId))
+  getParametersInterface(item.parameters, firstUpperCase(operationId), item.description)
   const res = parseSchema(item.responses?.['200']?.schema ?? item.responses?.['201']?.schema)
 
   return `// ${trim(item.description)}
@@ -78,7 +78,7 @@ function typeMap(type: string) {
   )
 }
 
-function getParametersInterface(parameters, name: string) {
+function getParametersInterface(parameters, name: string, description: string) {
   const lines = parameters
     .filter(item => /^\w+$/.test(item.name))
     .map(item => {
@@ -87,7 +87,7 @@ function getParametersInterface(parameters, name: string) {
         item.type === 'array' ? `${typeMap(item.items.type)}[]` : typeMap(item.type)
       }${item.description ? ` // ${trim(item.description)}` : ''}`
     })
-  interfaces.push(`interface ${name} {
+  interfaces.push(`${description ? `// ${trim(description)}\n` : ''}interface ${name} {
 ${lines.join('\n')}
 }`)
 }

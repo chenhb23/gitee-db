@@ -946,12 +946,14 @@ interface UserEmail {
   scope: string[]
 }
 
+// 获取所有分支
 interface GetReposOwnerRepoBranches {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
   repo?: string // 仓库路径(path)
 }
 
+// 创建分支
 interface PostReposOwnerRepoBranches {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -960,6 +962,7 @@ interface PostReposOwnerRepoBranches {
   branch_name: string // 新创建的分支名称
 }
 
+// 获取单个分支
 interface GetReposOwnerRepoBranchesBranch {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -967,6 +970,7 @@ interface GetReposOwnerRepoBranchesBranch {
   branch: string // 分支名称
 }
 
+// 设置分支保护
 interface PutReposOwnerRepoBranchesBranchProtection {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -974,6 +978,7 @@ interface PutReposOwnerRepoBranchesBranchProtection {
   branch: string // 分支名称
 }
 
+// 取消保护分支的设置
 interface DeleteReposOwnerRepoBranchesBranchProtection {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -981,6 +986,7 @@ interface DeleteReposOwnerRepoBranchesBranchProtection {
   branch: string // 分支名称
 }
 
+// 分支保护策略设置
 interface PutReposOwnerRepoBranchesWildcardSetting {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -991,6 +997,7 @@ interface PutReposOwnerRepoBranchesWildcardSetting {
   merger: string // admin: 仓库管理员, none: 禁止任何人合并; 用户: 个人的地址path(多个用户用 ';' 隔开)
 }
 
+// 删除仓库保护分支策略
 interface DeleteReposOwnerRepoBranchesWildcardSetting {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -998,6 +1005,7 @@ interface DeleteReposOwnerRepoBranchesWildcardSetting {
   wildcard: string // 分支/通配符
 }
 
+// 新建仓库保护分支策略
 interface PutReposOwnerRepoBranchesSettingNew {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1007,6 +1015,7 @@ interface PutReposOwnerRepoBranchesSettingNew {
   merger: string // admin: 仓库管理员, none: 禁止任何人合并; 用户: 个人的地址path(多个用户用 ';' 隔开)
 }
 
+// 仓库的所有提交
 interface GetReposOwnerRepoCommits {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1020,6 +1029,7 @@ interface GetReposOwnerRepoCommits {
   per_page?: number // 每页的数量，最大为 100
 }
 
+// 仓库的某个提交
 interface GetReposOwnerRepoCommitsSha {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1027,6 +1037,7 @@ interface GetReposOwnerRepoCommitsSha {
   sha: string // 提交的SHA值或者分支名
 }
 
+// 两个Commits之间对比的版本差异
 interface GetReposOwnerRepoCompareBaseHead {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1035,6 +1046,7 @@ interface GetReposOwnerRepoCompareBaseHead {
   head: string // Commit提交的SHA值或者分支名作为对比终点
 }
 
+// 获取仓库已部署的公钥
 interface GetReposOwnerRepoKeys {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1043,6 +1055,7 @@ interface GetReposOwnerRepoKeys {
   per_page?: number // 每页的数量，最大为 100
 }
 
+// 为仓库添加公钥
 interface PostReposOwnerRepoKeys {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1051,6 +1064,7 @@ interface PostReposOwnerRepoKeys {
   title: string // 公钥名称
 }
 
+// 获取仓库可部署的公钥
 interface GetReposOwnerRepoKeysAvailable {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1059,6 +1073,7 @@ interface GetReposOwnerRepoKeysAvailable {
   per_page?: number // 每页的数量，最大为 100
 }
 
+// 启用仓库公钥
 interface PutReposOwnerRepoKeysEnableId {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1066,6 +1081,7 @@ interface PutReposOwnerRepoKeysEnableId {
   id: number // 公钥 ID
 }
 
+// 停用仓库公钥
 interface DeleteReposOwnerRepoKeysEnableId {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1073,6 +1089,7 @@ interface DeleteReposOwnerRepoKeysEnableId {
   id: number // 公钥 ID
 }
 
+// 获取仓库的单个公钥
 interface GetReposOwnerRepoKeysId {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1080,6 +1097,7 @@ interface GetReposOwnerRepoKeysId {
   id: number // 公钥 ID
 }
 
+// 删除一个仓库公钥
 interface DeleteReposOwnerRepoKeysId {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1087,6 +1105,7 @@ interface DeleteReposOwnerRepoKeysId {
   id: number // 公钥 ID
 }
 
+// 获取仓库README
 interface GetReposOwnerRepoReadme {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1094,6 +1113,7 @@ interface GetReposOwnerRepoReadme {
   ref?: string // 分支、tag或commit。默认: 仓库的默认分支(通常是master)
 }
 
+// 获取仓库具体路径下的内容
 interface GetReposOwnerRepoContents {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1102,6 +1122,7 @@ interface GetReposOwnerRepoContents {
   ref?: string // 分支、tag或commit。默认: 仓库的默认分支(通常是master)
 }
 
+// 新建文件
 interface PostReposOwnerRepoContentsPath {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1112,6 +1133,7 @@ interface PostReposOwnerRepoContentsPath {
   branch?: string // 分支名称。默认为仓库对默认分支
 }
 
+// 更新文件
 interface PutReposOwnerRepoContentsPath {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1123,6 +1145,7 @@ interface PutReposOwnerRepoContentsPath {
   branch?: string // 分支名称。默认为仓库对默认分支
 }
 
+// 删除文件
 interface DeleteReposOwnerRepoContentsPath {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1133,6 +1156,7 @@ interface DeleteReposOwnerRepoContentsPath {
   branch?: string // 分支名称。默认为仓库对默认分支
 }
 
+// 获取文件Blob
 interface GetReposOwnerRepoGitBlobsSha {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1140,6 +1164,7 @@ interface GetReposOwnerRepoGitBlobsSha {
   sha: string // 文件的 Blob SHA，可通过 [获取仓库具体路径下的内容] API 获取
 }
 
+// 获取目录Tree
 interface GetReposOwnerRepoGitTreesSha {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1148,12 +1173,14 @@ interface GetReposOwnerRepoGitTreesSha {
   recursive?: number // 赋值为1递归获取目录
 }
 
+// 获取 Gitee 指数
 interface GetReposOwnerRepoGitGiteeMetrics {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
   repo?: string // 仓库路径(path)
 }
 
+// 仓库的所有Issues
 interface GetReposOwnerRepoIssues {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1175,6 +1202,7 @@ interface GetReposOwnerRepoIssues {
   program?: string // 所属项目名称。none为没有所属项目，*为所有带所属项目的
 }
 
+// 仓库的某个Issue
 interface GetReposOwnerRepoIssuesNumber {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1182,6 +1210,7 @@ interface GetReposOwnerRepoIssuesNumber {
   number: string // Issue 编号(区分大小写，无需添加 # 号)
 }
 
+// 创建Issue
 interface PostReposOwnerIssues {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1197,6 +1226,7 @@ interface PostReposOwnerIssues {
   security_hole?: boolean // 是否是私有issue(默认为false)
 }
 
+// 更新Issue
 interface PatchReposOwnerIssuesNumber {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1213,6 +1243,7 @@ interface PatchReposOwnerIssuesNumber {
   security_hole?: boolean // 是否是私有issue(默认为false)
 }
 
+// 获取 issue 关联的 Pull Requests
 interface GetReposOwnerIssuesNumberPullRequests {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1220,6 +1251,7 @@ interface GetReposOwnerIssuesNumberPullRequests {
   number: string // Issue 编号(区分大小写，无需添加 # 号)
 }
 
+// 获取某个Issue下的操作日志
 interface GetReposOwnerIssuesNumberOperateLogs {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1228,12 +1260,14 @@ interface GetReposOwnerIssuesNumberOperateLogs {
   sort?: string // 按递增(asc)或递减(desc)排序，默认：递减
 }
 
+// 获取仓库所有任务标签
 interface GetReposOwnerRepoLabels {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
   repo?: string // 仓库路径(path)
 }
 
+// 创建仓库任务标签
 interface PostReposOwnerRepoLabels {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1242,6 +1276,7 @@ interface PostReposOwnerRepoLabels {
   color: string // 标签颜色。为6位的数字，如: 000000
 }
 
+// 根据标签名称获取单个标签
 interface GetReposOwnerRepoLabelsName {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1249,6 +1284,7 @@ interface GetReposOwnerRepoLabelsName {
   name: string // 标签名称
 }
 
+// 删除一个仓库任务标签
 interface DeleteReposOwnerRepoLabelsName {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1256,6 +1292,7 @@ interface DeleteReposOwnerRepoLabelsName {
   name: string // 标签名称
 }
 
+// 更新一个仓库任务标签
 interface PatchReposOwnerRepoLabelsOriginalName {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1265,6 +1302,7 @@ interface PatchReposOwnerRepoLabelsOriginalName {
   color?: string // 标签新颜色
 }
 
+// 获取仓库任务的所有标签
 interface GetReposOwnerRepoIssuesNumberLabels {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1272,6 +1310,7 @@ interface GetReposOwnerRepoIssuesNumberLabels {
   number: string // Issue 编号(区分大小写，无需添加 # 号)
 }
 
+// 创建Issue标签 需要在请求的body里填上数组，元素为标签的名字。如: ["performance", "bug"]
 interface PostReposOwnerRepoIssuesNumberLabels {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1280,6 +1319,7 @@ interface PostReposOwnerRepoIssuesNumberLabels {
   body: string[] // 标签名数组，如: ["feat", "bug"]
 }
 
+// 替换Issue所有标签 需要在请求的body里填上数组，元素为标签的名字。如: ["performance", "bug"]
 interface PutReposOwnerRepoIssuesNumberLabels {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1288,6 +1328,7 @@ interface PutReposOwnerRepoIssuesNumberLabels {
   body: string[] // 标签名数组，如: ["feat", "bug"]
 }
 
+// 删除Issue所有标签
 interface DeleteReposOwnerRepoIssuesNumberLabels {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1295,6 +1336,7 @@ interface DeleteReposOwnerRepoIssuesNumberLabels {
   number: string // Issue 编号(区分大小写，无需添加 # 号)
 }
 
+// 删除Issue标签
 interface DeleteReposOwnerRepoIssuesNumberLabelsName {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1303,6 +1345,7 @@ interface DeleteReposOwnerRepoIssuesNumberLabelsName {
   name: string // 标签名称
 }
 
+// 获取仓库所有里程碑
 interface GetReposOwnerRepoMilestones {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1314,6 +1357,7 @@ interface GetReposOwnerRepoMilestones {
   per_page?: number // 每页的数量，最大为 100
 }
 
+// 创建仓库里程碑
 interface PostReposOwnerRepoMilestones {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1324,6 +1368,7 @@ interface PostReposOwnerRepoMilestones {
   due_on: string // 里程碑的截止日期
 }
 
+// 获取仓库单个里程碑
 interface GetReposOwnerRepoMilestonesNumber {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1331,6 +1376,7 @@ interface GetReposOwnerRepoMilestonesNumber {
   number: number // 里程碑序号(id)
 }
 
+// 更新仓库里程碑
 interface PatchReposOwnerRepoMilestonesNumber {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1342,6 +1388,7 @@ interface PatchReposOwnerRepoMilestonesNumber {
   due_on: string // 里程碑的截止日期
 }
 
+// 删除仓库单个里程碑
 interface DeleteReposOwnerRepoMilestonesNumber {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1349,12 +1396,14 @@ interface DeleteReposOwnerRepoMilestonesNumber {
   number: number // 里程碑序号(id)
 }
 
+// 获取一个仓库使用的开源许可协议
 interface GetReposOwnerRepoLicense {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
   repo?: string // 仓库路径(path)
 }
 
+// 获取仓库的Commit评论
 interface GetReposOwnerRepoComments {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1364,6 +1413,7 @@ interface GetReposOwnerRepoComments {
   order?: string // 排序顺序: asc(default),desc
 }
 
+// 获取单个Commit的评论
 interface GetReposOwnerRepoCommitsRefComments {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1373,6 +1423,7 @@ interface GetReposOwnerRepoCommitsRefComments {
   per_page?: number // 每页的数量，最大为 100
 }
 
+// 获取仓库的某条Commit评论
 interface GetReposOwnerRepoCommentsId {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1380,6 +1431,7 @@ interface GetReposOwnerRepoCommentsId {
   id: number // 评论的ID
 }
 
+// 更新Commit评论
 interface PatchReposOwnerRepoCommentsId {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1388,6 +1440,7 @@ interface PatchReposOwnerRepoCommentsId {
   body: string // 评论的内容
 }
 
+// 删除Commit评论
 interface DeleteReposOwnerRepoCommentsId {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1395,6 +1448,7 @@ interface DeleteReposOwnerRepoCommentsId {
   id: number // 评论的ID
 }
 
+// 创建Commit评论
 interface PostReposOwnerRepoCommitsShaComments {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1405,6 +1459,7 @@ interface PostReposOwnerRepoCommitsShaComments {
   position?: number // Diff的相对行数
 }
 
+// 获取仓库所有Issue的评论
 interface GetReposOwnerRepoIssuesComments {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1416,6 +1471,7 @@ interface GetReposOwnerRepoIssuesComments {
   per_page?: number // 每页的数量，最大为 100
 }
 
+// 获取仓库某个Issue所有的评论
 interface GetReposOwnerRepoIssuesNumberComments {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1427,6 +1483,7 @@ interface GetReposOwnerRepoIssuesNumberComments {
   order?: string // 排序顺序: asc(default),desc
 }
 
+// 创建某个Issue评论
 interface PostReposOwnerRepoIssuesNumberComments {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1435,6 +1492,7 @@ interface PostReposOwnerRepoIssuesNumberComments {
   body: string // The contents of the comment.
 }
 
+// 获取仓库Issue某条评论
 interface GetReposOwnerRepoIssuesCommentsId {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1442,6 +1500,7 @@ interface GetReposOwnerRepoIssuesCommentsId {
   id: number // 评论的ID
 }
 
+// 更新Issue某条评论
 interface PatchReposOwnerRepoIssuesCommentsId {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1450,6 +1509,7 @@ interface PatchReposOwnerRepoIssuesCommentsId {
   body: string // The contents of the comment.
 }
 
+// 删除Issue某条评论
 interface DeleteReposOwnerRepoIssuesCommentsId {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1457,24 +1517,28 @@ interface DeleteReposOwnerRepoIssuesCommentsId {
   id: number // 评论的ID
 }
 
+// 获取Pages信息
 interface GetReposOwnerRepoPages {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
   repo?: string // 仓库路径(path)
 }
 
+// 请求建立Pages
 interface PostReposOwnerRepoPagesBuilds {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
   repo?: string // 仓库路径(path)
 }
 
+// 获取用户的某个仓库
 interface GetReposOwnerRepo {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
   repo?: string // 仓库路径(path)
 }
 
+// 更新仓库设置
 interface PatchReposOwnerRepo {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1495,12 +1559,14 @@ interface PatchReposOwnerRepo {
   lightweight_pr_enabled?: boolean // 是否接受轻量级 pull request
 }
 
+// 删除一个仓库
 interface DeleteReposOwnerRepo {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
   repo?: string // 仓库路径(path)
 }
 
+// 修改代码审查设置
 interface PutReposOwnerRepoReviewer {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1511,18 +1577,21 @@ interface PutReposOwnerRepoReviewer {
   testers_number: number // 最少测试人数
 }
 
+// 获取仓库贡献者
 interface GetReposOwnerRepoContributors {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
   repo?: string // 仓库路径(path)
 }
 
+// 列出仓库所有的tags
 interface GetReposOwnerRepoTags {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
   repo?: string // 仓库路径(path)
 }
 
+// 创建一个仓库的 Tag
 interface PostReposOwnerRepoTags {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1532,12 +1601,14 @@ interface PostReposOwnerRepoTags {
   tag_message?: string // Tag 描述, 默认为空
 }
 
+// 清空一个仓库
 interface PutReposOwnerRepoClear {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
   repo?: string // 仓库路径(path)
 }
 
+// 获取仓库的所有成员
 interface GetReposOwnerRepoCollaborators {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1546,6 +1617,7 @@ interface GetReposOwnerRepoCollaborators {
   per_page?: number // 每页的数量，最大为 100
 }
 
+// 判断用户是否为仓库成员
 interface GetReposOwnerRepoCollaboratorsUsername {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1553,6 +1625,7 @@ interface GetReposOwnerRepoCollaboratorsUsername {
   username: string // 用户名(username/login)
 }
 
+// 添加仓库成员
 interface PutReposOwnerRepoCollaboratorsUsername {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1561,6 +1634,7 @@ interface PutReposOwnerRepoCollaboratorsUsername {
   permission: string // 成员权限: 拉代码(pull)，推代码(push)，管理员(admin)。默认: push
 }
 
+// 移除仓库成员
 interface DeleteReposOwnerRepoCollaboratorsUsername {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1568,6 +1642,7 @@ interface DeleteReposOwnerRepoCollaboratorsUsername {
   username: string // 用户名(username/login)
 }
 
+// 查看仓库成员的权限
 interface GetReposOwnerRepoCollaboratorsUsernamePermission {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1575,6 +1650,7 @@ interface GetReposOwnerRepoCollaboratorsUsernamePermission {
   username: string // 用户名(username/login)
 }
 
+// 查看仓库的Forks
 interface GetReposOwnerRepoForks {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1584,6 +1660,7 @@ interface GetReposOwnerRepoForks {
   per_page?: number // 每页的数量，最大为 100
 }
 
+// Fork一个仓库
 interface PostReposOwnerRepoForks {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1591,6 +1668,7 @@ interface PostReposOwnerRepoForks {
   organization?: string // 组织空间地址，不填写默认Fork到用户个人空间地址
 }
 
+// 获取Pull Request列表
 interface GetReposOwnerRepoPulls {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1606,6 +1684,7 @@ interface GetReposOwnerRepoPulls {
   per_page?: number // 每页的数量，最大为 100
 }
 
+// 创建Pull Request
 interface PostReposOwnerRepoPulls {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1622,6 +1701,7 @@ interface PostReposOwnerRepoPulls {
   prune_source_branch?: boolean // 可选。合并PR后是否删除源分支，默认false（不删除）
 }
 
+// 获取该仓库下的所有Pull Request评论
 interface GetReposOwnerRepoPullsComments {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1633,6 +1713,7 @@ interface GetReposOwnerRepoPullsComments {
   per_page?: number // 每页的数量，最大为 100
 }
 
+// 获取单个Pull Request
 interface GetReposOwnerRepoPullsNumber {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1640,6 +1721,7 @@ interface GetReposOwnerRepoPullsNumber {
   number: number // 第几个PR，即本仓库PR的序数
 }
 
+// 更新Pull Request信息
 interface PatchReposOwnerRepoPullsNumber {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1654,6 +1736,7 @@ interface PatchReposOwnerRepoPullsNumber {
   testers_number?: number // 可选。最少测试人数
 }
 
+// 获取某个Pull Request的操作日志
 interface GetReposOwnerRepoPullsNumberOperateLogs {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1662,6 +1745,7 @@ interface GetReposOwnerRepoPullsNumberOperateLogs {
   sort?: string // 按递增(asc)或递减(desc)排序，默认：递减
 }
 
+// 获取某Pull Request的所有Commit信息。最多显示250条Commit
 interface GetReposOwnerRepoPullsNumberCommits {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1669,6 +1753,7 @@ interface GetReposOwnerRepoPullsNumberCommits {
   number: number // 第几个PR，即本仓库PR的序数
 }
 
+// Pull Request Commit文件列表。最多显示300条diff
 interface GetReposOwnerRepoPullsNumberFiles {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1676,6 +1761,7 @@ interface GetReposOwnerRepoPullsNumberFiles {
   number: number // 第几个PR，即本仓库PR的序数
 }
 
+// 判断Pull Request是否已经合并
 interface GetReposOwnerRepoPullsNumberMerge {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1683,6 +1769,7 @@ interface GetReposOwnerRepoPullsNumberMerge {
   number: number // 第几个PR，即本仓库PR的序数
 }
 
+// 合并Pull Request
 interface PutReposOwnerRepoPullsNumberMerge {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1694,6 +1781,7 @@ interface PutReposOwnerRepoPullsNumberMerge {
   description?: string // 可选。合并描述，默认为 "Merge pull request !{pr_id} from {author}/{source_branch}"，与页面显示的默认一致。
 }
 
+// 处理 Pull Request 审查
 interface PostReposOwnerRepoPullsNumberReview {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1702,6 +1790,7 @@ interface PostReposOwnerRepoPullsNumberReview {
   force?: boolean // 是否强制审查通过（默认否），只对管理员生效
 }
 
+// 处理 Pull Request 测试
 interface PostReposOwnerRepoPullsNumberTest {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1710,6 +1799,7 @@ interface PostReposOwnerRepoPullsNumberTest {
   force?: boolean // 是否强制测试通过（默认否），只对管理员生效
 }
 
+// 指派用户审查 Pull Request
 interface PostReposOwnerRepoPullsNumberAssignees {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1718,6 +1808,7 @@ interface PostReposOwnerRepoPullsNumberAssignees {
   assignees: string // 用户的个人空间地址, 以 , 分隔
 }
 
+// 取消用户审查 Pull Request
 interface DeleteReposOwnerRepoPullsNumberAssignees {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1726,6 +1817,7 @@ interface DeleteReposOwnerRepoPullsNumberAssignees {
   assignees: string // 用户的个人空间地址, 以 , 分隔
 }
 
+// 重置 Pull Request 审查 的状态
 interface PatchReposOwnerRepoPullsNumberAssignees {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1734,6 +1826,7 @@ interface PatchReposOwnerRepoPullsNumberAssignees {
   reset_all?: boolean // 是否重置所有审查人，默认：false，只对管理员生效
 }
 
+// 指派用户测试 Pull Request
 interface PostReposOwnerRepoPullsNumberTesters {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1742,6 +1835,7 @@ interface PostReposOwnerRepoPullsNumberTesters {
   testers: string // 用户的个人空间地址, 以 , 分隔
 }
 
+// 取消用户测试 Pull Request
 interface DeleteReposOwnerRepoPullsNumberTesters {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1750,6 +1844,7 @@ interface DeleteReposOwnerRepoPullsNumberTesters {
   testers: string // 用户的个人空间地址, 以 , 分隔
 }
 
+// 重置 Pull Request 测试 的状态
 interface PatchReposOwnerRepoPullsNumberTesters {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1758,6 +1853,7 @@ interface PatchReposOwnerRepoPullsNumberTesters {
   reset_all?: boolean // 是否重置所有测试人，默认：false，只对管理员生效
 }
 
+// 获取 Pull Request 关联的 issues
 interface GetReposOwnerRepoPullsNumberIssues {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1767,6 +1863,7 @@ interface GetReposOwnerRepoPullsNumberIssues {
   number: number
 }
 
+// 获取某个Pull Request的所有评论
 interface GetReposOwnerRepoPullsNumberComments {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1776,6 +1873,7 @@ interface GetReposOwnerRepoPullsNumberComments {
   per_page?: number // 每页的数量，最大为 100
 }
 
+// 提交Pull Request评论
 interface PostReposOwnerRepoPullsNumberComments {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1787,6 +1885,7 @@ interface PostReposOwnerRepoPullsNumberComments {
   position?: number // 可选。PR代码评论diff中的行数
 }
 
+// 获取某个 Pull Request 的所有标签
 interface GetReposOwnerRepoPullsNumberLabels {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1796,6 +1895,7 @@ interface GetReposOwnerRepoPullsNumberLabels {
   per_page?: number // 每页的数量，最大为 100
 }
 
+// 创建 Pull Request 标签 需要在请求的 body 里填上数组，元素为标签的名字。如: ["performance", "bug"]
 interface PostReposOwnerRepoPullsNumberLabels {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1804,6 +1904,7 @@ interface PostReposOwnerRepoPullsNumberLabels {
   body: string[] // 标签名数组，如: ["feat", "bug"]
 }
 
+// 替换 Pull Request 所有标签 需要在请求的body里填上数组，元素为标签的名字。如: ["performance", "bug"]
 interface PutReposOwnerRepoPullsNumberLabels {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1812,6 +1913,7 @@ interface PutReposOwnerRepoPullsNumberLabels {
   body: string[] // 标签名数组，如: ["feat", "bug"]
 }
 
+// 删除 Pull Request 标签
 interface DeleteReposOwnerRepoPullsNumberLabelsName {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1820,6 +1922,7 @@ interface DeleteReposOwnerRepoPullsNumberLabelsName {
   name: string // 标签名称
 }
 
+// 获取Pull Request的某个评论
 interface GetReposOwnerRepoPullsCommentsId {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1827,6 +1930,7 @@ interface GetReposOwnerRepoPullsCommentsId {
   id: number
 }
 
+// 编辑评论
 interface PatchReposOwnerRepoPullsCommentsId {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1835,6 +1939,7 @@ interface PatchReposOwnerRepoPullsCommentsId {
   body: string // 必填。评论内容
 }
 
+// 删除评论
 interface DeleteReposOwnerRepoPullsCommentsId {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1842,6 +1947,7 @@ interface DeleteReposOwnerRepoPullsCommentsId {
   id: number // 评论的ID
 }
 
+// 获取仓库的所有Releases
 interface GetReposOwnerRepoReleases {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1850,6 +1956,7 @@ interface GetReposOwnerRepoReleases {
   per_page?: number // 每页的数量，最大为 100
 }
 
+// 创建仓库Release
 interface PostReposOwnerRepoReleases {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1861,6 +1968,7 @@ interface PostReposOwnerRepoReleases {
   target_commitish: string // 分支名称或者commit SHA, 默认是当前默认分支
 }
 
+// 获取仓库的单个Releases
 interface GetReposOwnerRepoReleasesId {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1868,6 +1976,7 @@ interface GetReposOwnerRepoReleasesId {
   id: number // 发行版本的ID
 }
 
+// 更新仓库Release
 interface PatchReposOwnerRepoReleasesId {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1879,6 +1988,7 @@ interface PatchReposOwnerRepoReleasesId {
   id: number
 }
 
+// 删除仓库Release
 interface DeleteReposOwnerRepoReleasesId {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1886,12 +1996,14 @@ interface DeleteReposOwnerRepoReleasesId {
   id: number
 }
 
+// 获取仓库的最后更新的Release
 interface GetReposOwnerRepoReleasesLatest {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
   repo?: string // 仓库路径(path)
 }
 
+// 根据Tag名称获取仓库的Release
 interface GetReposOwnerRepoReleasesTagsTag {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1899,6 +2011,7 @@ interface GetReposOwnerRepoReleasesTagsTag {
   tag: string // Tag 名称
 }
 
+// 列出仓库的WebHooks
 interface GetReposOwnerRepoHooks {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1907,6 +2020,7 @@ interface GetReposOwnerRepoHooks {
   per_page?: number // 每页的数量，最大为 100
 }
 
+// 创建一个仓库WebHook
 interface PostReposOwnerRepoHooks {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1921,6 +2035,7 @@ interface PostReposOwnerRepoHooks {
   merge_requests_events?: boolean // 合并请求和合并后
 }
 
+// 获取仓库单个WebHook
 interface GetReposOwnerRepoHooksId {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1928,6 +2043,7 @@ interface GetReposOwnerRepoHooksId {
   id: number // Webhook的ID
 }
 
+// 更新一个仓库WebHook
 interface PatchReposOwnerRepoHooksId {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1943,6 +2059,7 @@ interface PatchReposOwnerRepoHooksId {
   merge_requests_events?: boolean // 合并请求和合并后
 }
 
+// 删除一个仓库WebHook
 interface DeleteReposOwnerRepoHooksId {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1950,6 +2067,7 @@ interface DeleteReposOwnerRepoHooksId {
   id: number // Webhook的ID
 }
 
+// 测试WebHook是否发送成功
 interface PostReposOwnerRepoHooksIdTests {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1957,6 +2075,7 @@ interface PostReposOwnerRepoHooksIdTests {
   id: number // Webhook的ID
 }
 
+// 列出 star 了仓库的用户
 interface GetReposOwnerRepoStargazers {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1965,6 +2084,7 @@ interface GetReposOwnerRepoStargazers {
   per_page?: number // 每页的数量，最大为 100
 }
 
+// 列出 watch 了仓库的用户
 interface GetReposOwnerRepoSubscribers {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1973,6 +2093,7 @@ interface GetReposOwnerRepoSubscribers {
   per_page?: number // 每页的数量，最大为 100
 }
 
+// 列出仓库的所有动态
 interface GetReposOwnerRepoEvents {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1983,6 +2104,7 @@ interface GetReposOwnerRepoEvents {
   per_page?: number // 每页的数量，最大为 100(待废弃，建议使用滚动列表参数)
 }
 
+// 列出一个仓库里的通知
 interface GetReposOwnerRepoNotifications {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -1997,6 +2119,7 @@ interface GetReposOwnerRepoNotifications {
   per_page?: number // 每页的数量，最大为 100
 }
 
+// 标记一个仓库里的通知为已读
 interface PutReposOwnerRepoNotifications {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -2004,34 +2127,40 @@ interface PutReposOwnerRepoNotifications {
   ids?: string // 指定一组通知 ID，以 , 分隔
 }
 
+// 开通Gitee Go
 interface PostReposOwnerRepoOpen {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
   repo?: string // 仓库path
 }
 
+// 列出授权用户的所有公钥
 interface GetUserKeys {
   access_token?: string // 用户授权码
   page?: number // 当前的页码
   per_page?: number // 每页的数量，最大为 100
 }
 
+// 添加一个公钥
 interface PostUserKeys {
   access_token?: string // 用户授权码
   key: string // 公钥内容
   title: string // 公钥名称
 }
 
+// 获取一个公钥
 interface GetUserKeysId {
   access_token?: string // 用户授权码
   id: number // 公钥 ID
 }
 
+// 删除一个公钥
 interface DeleteUserKeysId {
   access_token?: string // 用户授权码
   id: number // 公钥 ID
 }
 
+// 列出授权用户所属的组织
 interface GetUserOrgs {
   access_token?: string // 用户授权码
   page?: number // 当前的页码
@@ -2039,6 +2168,7 @@ interface GetUserOrgs {
   admin?: boolean // 只列出授权用户管理的组织
 }
 
+// 获取授权用户的所有Issues
 interface GetUserIssues {
   access_token?: string // 用户授权码
   filter?: string // 筛选参数: 授权用户负责的(assigned)，授权用户创建的(created)，包含前两者的(all)。默认: assigned
@@ -2055,6 +2185,7 @@ interface GetUserIssues {
   finished_at?: string // 任务完成时间，即任务最后一次转为已完成状态的时间点。格式同上
 }
 
+// 列出授权用户的所有仓库
 interface GetUserRepos {
   access_token?: string // 用户授权码
   visibility?: string // 公开(public)、私有(private)或者所有(all)，默认: 所有(all)
@@ -2067,6 +2198,7 @@ interface GetUserRepos {
   per_page?: number // 每页的数量，最大为 100
 }
 
+// 创建一个仓库
 interface PostUserRepos {
   access_token?: string // 用户授权码
   name: string // 仓库名称
@@ -2082,10 +2214,12 @@ interface PostUserRepos {
   private?: boolean // 仓库公开或私有。默认: 公开(false)
 }
 
+// 获取授权用户的资料
 interface GetUser {
   access_token?: string // 用户授权码
 }
 
+// 更新授权用户的资料
 interface PatchUser {
   access_token?: string // 用户授权码
   name?: string // 昵称
@@ -2094,28 +2228,33 @@ interface PatchUser {
   bio?: string // 自我介绍
 }
 
+// 列出授权用户的关注者
 interface GetUserFollowers {
   access_token?: string // 用户授权码
   page?: number // 当前的页码
   per_page?: number // 每页的数量，最大为 100
 }
 
+// 列出授权用户正关注的用户
 interface GetUserFollowing {
   access_token?: string // 用户授权码
   page?: number // 当前的页码
   per_page?: number // 每页的数量，最大为 100
 }
 
+// 列出授权用户所有的 Namespace
 interface GetUserNamespaces {
   access_token?: string // 用户授权码
   mode?: string // 参与方式: project(所有参与仓库的namepsce)、intrant(所加入的namespace)、all(包含前两者)，默认(intrant)
 }
 
+// 获取授权用户的一个 Namespace
 interface GetUserNamespace {
   access_token?: string // 用户授权码
   path: string // Namespace path
 }
 
+// 列出授权用户 star 了的仓库
 interface GetUserStarred {
   access_token?: string // 用户授权码
   sort?: string // 根据仓库创建时间(created)或最后推送时间(updated)进行排序，默认：创建时间
@@ -2124,6 +2263,7 @@ interface GetUserStarred {
   per_page?: number // 每页的数量，最大为 100
 }
 
+// 列出授权用户 watch 了的仓库
 interface GetUserSubscriptions {
   access_token?: string // 用户授权码
   sort?: string // 根据仓库创建时间(created)或最后推送时间(updated)进行排序，默认：创建时间
@@ -2132,6 +2272,7 @@ interface GetUserSubscriptions {
   per_page?: number // 每页的数量，最大为 100
 }
 
+// 列出授权用户所属的企业
 interface GetUserEnterprises {
   access_token?: string // 用户授权码
   page?: number // 当前的页码
@@ -2139,6 +2280,7 @@ interface GetUserEnterprises {
   admin?: boolean // 只列出授权用户管理的企业
 }
 
+// 列出授权用户在所属组织的成员资料
 interface GetUserMembershipsOrgs {
   access_token?: string // 用户授权码
   active?: boolean // 根据成员是否已激活进行筛选资料，缺省返回所有资料
@@ -2146,61 +2288,72 @@ interface GetUserMembershipsOrgs {
   per_page?: number // 每页的数量，最大为 100
 }
 
+// 获取授权用户在一个组织的成员资料
 interface GetUserMembershipsOrgsOrg {
   access_token?: string // 用户授权码
   org: string // 组织的路径(path/login)
 }
 
+// 更新授权用户在一个组织的成员资料
 interface PatchUserMembershipsOrgsOrg {
   access_token?: string // 用户授权码
   org: string // 组织的路径(path/login)
   remark?: string // 在组织中的备注信息
 }
 
+// 退出一个组织
 interface DeleteUserMembershipsOrgsOrg {
   access_token?: string // 用户授权码
   org: string // 组织的路径(path/login)
 }
 
+// 检查授权用户是否关注了一个用户
 interface GetUserFollowingUsername {
   access_token?: string // 用户授权码
   username: string // 用户名(username/login)
 }
 
+// 关注一个用户
 interface PutUserFollowingUsername {
   access_token?: string // 用户授权码
   username: string // 用户名(username/login)
 }
 
+// 取消关注一个用户
 interface DeleteUserFollowingUsername {
   access_token?: string // 用户授权码
   username: string // 用户名(username/login)
 }
 
+// 检查授权用户是否 star 了一个仓库
 interface GetUserStarredOwnerRepo {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
   repo?: string // 仓库路径(path)
 }
 
+// star 一个仓库
 interface PutUserStarredOwnerRepo {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
   repo?: string // 仓库路径(path)
 }
 
+// 取消 star 一个仓库
 interface DeleteUserStarredOwnerRepo {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
   repo?: string // 仓库路径(path)
 }
 
+// 检查授权用户是否 watch 了一个仓库
 interface GetUserSubscriptionsOwnerRepo {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
   repo?: string // 仓库路径(path)
 }
 
+// watch 一个仓库
 interface PutUserSubscriptionsOwnerRepo {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -2208,12 +2361,14 @@ interface PutUserSubscriptionsOwnerRepo {
   watch_type: string // watch策略, watching: 关注所有动态, ignoring: 关注但不提醒动态
 }
 
+// 取消 watch 一个仓库
 interface DeleteUserSubscriptionsOwnerRepo {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
   repo?: string // 仓库路径(path)
 }
 
+// 获取代码片段
 interface GetGists {
   access_token?: string // 用户授权码
   since?: string // 起始的更新时间，要求时间格式为 ISO 8601
@@ -2221,6 +2376,7 @@ interface GetGists {
   per_page?: number // 每页的数量，最大为 100
 }
 
+// 创建代码片段
 interface PostGists {
   access_token?: string // 用户授权码
   files: Record<string, any> // Hash形式的代码片段文件名以及文件内容。如: { "file1.txt": { "content": "String file contents" } }
@@ -2228,6 +2384,7 @@ interface PostGists {
   public?: boolean // 公开/私有，默认: 私有
 }
 
+// 获取用户Star的代码片段
 interface GetGistsStarred {
   access_token?: string // 用户授权码
   since?: string // 起始的更新时间，要求时间格式为 ISO 8601
@@ -2235,6 +2392,7 @@ interface GetGistsStarred {
   per_page?: number // 每页的数量，最大为 100
 }
 
+// 获取代码片段的评论
 interface GetGistsGistIdComments {
   access_token?: string // 用户授权码
   gist_id: string // 代码片段的ID
@@ -2242,18 +2400,21 @@ interface GetGistsGistIdComments {
   per_page?: number // 每页的数量，最大为 100
 }
 
+// 增加代码片段的评论
 interface PostGistsGistIdComments {
   access_token?: string // 用户授权码
   gist_id: string // 代码片段的ID
   body: string // 评论内容
 }
 
+// 获取单条代码片段的评论
 interface GetGistsGistIdCommentsId {
   access_token?: string // 用户授权码
   gist_id: string // 代码片段的ID
   id: number // 评论的ID
 }
 
+// 修改代码片段的评论
 interface PatchGistsGistIdCommentsId {
   access_token?: string // 用户授权码
   gist_id: string // 代码片段的ID
@@ -2261,17 +2422,20 @@ interface PatchGistsGistIdCommentsId {
   body: string // 评论内容
 }
 
+// 删除代码片段的评论
 interface DeleteGistsGistIdCommentsId {
   access_token?: string // 用户授权码
   gist_id: string // 代码片段的ID
   id: number // 评论的ID
 }
 
+// 获取单条代码片段
 interface GetGistsId {
   access_token?: string // 用户授权码
   id: string // 代码片段的ID
 }
 
+// 修改代码片段
 interface PatchGistsId {
   access_token?: string // 用户授权码
   id: string // 代码片段的ID
@@ -2280,36 +2444,43 @@ interface PatchGistsId {
   public?: boolean // 公开/私有，默认: 私有
 }
 
+// 删除指定代码片段
 interface DeleteGistsId {
   access_token?: string // 用户授权码
   id: string // 代码片段的ID
 }
 
+// 获取代码片段的commit
 interface GetGistsIdCommits {
   access_token?: string // 用户授权码
   id: string // 代码片段的ID
 }
 
+// Star代码片段
 interface PutGistsIdStar {
   access_token?: string // 用户授权码
   id: string // 代码片段的ID
 }
 
+// 取消Star代码片段
 interface DeleteGistsIdStar {
   access_token?: string // 用户授权码
   id: string // 代码片段的ID
 }
 
+// 判断代码片段是否已Star
 interface GetGistsIdStar {
   access_token?: string // 用户授权码
   id: string // 代码片段的ID
 }
 
+// Fork代码片段
 interface PostGistsIdForks {
   access_token?: string // 用户授权码
   id: string // 代码片段的ID
 }
 
+// 获取 Fork 了指定代码片段的列表
 interface GetGistsIdForks {
   access_token?: string // 用户授权码
   id: string // 代码片段的ID
@@ -2317,6 +2488,7 @@ interface GetGistsIdForks {
   per_page?: number // 每页的数量，最大为 100
 }
 
+// 列出用户所属的组织
 interface GetUsersUsernameOrgs {
   access_token?: string // 用户授权码
   username: string // 用户名(username/login)
@@ -2324,6 +2496,7 @@ interface GetUsersUsernameOrgs {
   per_page?: number // 每页的数量，最大为 100
 }
 
+// 创建组织
 interface PostUsersOrganization {
   access_token?: string // 用户授权码
   name: string // 组织名称
@@ -2331,6 +2504,7 @@ interface PostUsersOrganization {
   description?: string // 组织描述
 }
 
+// 获取某个用户的公开仓库
 interface GetUsersUsernameRepos {
   access_token?: string // 用户授权码
   username: string // 用户名(username/login)
@@ -2341,11 +2515,13 @@ interface GetUsersUsernameRepos {
   per_page?: number // 每页的数量，最大为 100
 }
 
+// 获取一个用户
 interface GetUsersUsername {
   access_token?: string // 用户授权码
   username: string // 用户名(username/login)
 }
 
+// 列出指定用户的关注者
 interface GetUsersUsernameFollowers {
   access_token?: string // 用户授权码
   username: string // 用户名(username/login)
@@ -2353,6 +2529,7 @@ interface GetUsersUsernameFollowers {
   per_page?: number // 每页的数量，最大为 100
 }
 
+// 列出指定用户正在关注的用户
 interface GetUsersUsernameFollowing {
   access_token?: string // 用户授权码
   username: string // 用户名(username/login)
@@ -2360,12 +2537,14 @@ interface GetUsersUsernameFollowing {
   per_page?: number // 每页的数量，最大为 100
 }
 
+// 检查指定用户是否关注目标用户
 interface GetUsersUsernameFollowingTargetUser {
   access_token?: string // 用户授权码
   username: string // 用户名(username/login)
   target_user: string // 目标用户的用户名(username/login)
 }
 
+// 列出指定用户的所有公钥
 interface GetUsersUsernameKeys {
   access_token?: string // 用户授权码
   username: string // 用户名(username/login)
@@ -2373,6 +2552,7 @@ interface GetUsersUsernameKeys {
   per_page?: number // 每页的数量，最大为 100
 }
 
+// 列出用户 star 了的仓库
 interface GetUsersUsernameStarred {
   access_token?: string // 用户授权码
   username: string // 用户名(username/login)
@@ -2384,6 +2564,7 @@ interface GetUsersUsernameStarred {
   direction?: string // 按递增(asc)或递减(desc)排序，默认：递减
 }
 
+// 列出用户 watch 了的仓库
 interface GetUsersUsernameSubscriptions {
   access_token?: string // 用户授权码
   username: string // 用户名(username/login)
@@ -2395,6 +2576,7 @@ interface GetUsersUsernameSubscriptions {
   direction?: string // 按递增(asc)或递减(desc)排序，默认：递减
 }
 
+// 列出一个用户收到的动态
 interface GetUsersUsernameReceivedEvents {
   access_token?: string // 用户授权码
   username: string // 用户名(username/login)
@@ -2404,6 +2586,7 @@ interface GetUsersUsernameReceivedEvents {
   per_page?: number // 每页的数量，最大为 100(待废弃，建议使用滚动列表参数)
 }
 
+// 列出一个用户收到的公开动态
 interface GetUsersUsernameReceivedEventsPublic {
   access_token?: string // 用户授权码
   username: string // 用户名(username/login)
@@ -2413,6 +2596,7 @@ interface GetUsersUsernameReceivedEventsPublic {
   per_page?: number // 每页的数量，最大为 100(待废弃，建议使用滚动列表参数)
 }
 
+// 列出用户的动态
 interface GetUsersUsernameEvents {
   access_token?: string // 用户授权码
   username: string // 用户名(username/login)
@@ -2422,6 +2606,7 @@ interface GetUsersUsernameEvents {
   per_page?: number // 每页的数量，最大为 100(待废弃，建议使用滚动列表参数)
 }
 
+// 列出用户的公开动态
 interface GetUsersUsernameEventsPublic {
   access_token?: string // 用户授权码
   username: string // 用户名(username/login)
@@ -2431,6 +2616,7 @@ interface GetUsersUsernameEventsPublic {
   per_page?: number // 每页的数量，最大为 100(待废弃，建议使用滚动列表参数)
 }
 
+// 列出用户所属组织的动态
 interface GetUsersUsernameEventsOrgsOrg {
   access_token?: string // 用户授权码
   username: string // 用户名(username/login)
@@ -2441,11 +2627,13 @@ interface GetUsersUsernameEventsOrgsOrg {
   org: string // 组织的路径(path/login)
 }
 
+// 获取一个组织
 interface GetOrgsOrg {
   access_token?: string // 用户授权码
   org: string // 组织的路径(path/login)
 }
 
+// 更新授权用户所管理的组织资料
 interface PatchOrgsOrg {
   access_token?: string // 用户授权码
   org: string // 组织的路径(path/login)
@@ -2456,6 +2644,7 @@ interface PatchOrgsOrg {
   html_url?: string // 组织站点
 }
 
+// 列出一个组织的所有成员
 interface GetOrgsOrgMembers {
   access_token?: string // 用户授权码
   org: string // 组织的路径(path/login)
@@ -2464,6 +2653,7 @@ interface GetOrgsOrgMembers {
   role?: string // 根据角色筛选成员
 }
 
+// 列出指定组织的所有关注者
 interface GetOrgsOrgFollowers {
   access_token?: string // 用户授权码
   org: string // 组织的路径(path/login)
@@ -2471,6 +2661,7 @@ interface GetOrgsOrgFollowers {
   per_page?: number // 每页的数量，最大为 100
 }
 
+// 获取当前用户某个组织的Issues
 interface GetOrgsOrgIssues {
   access_token?: string // 用户授权码
   filter?: string // 筛选参数: 授权用户负责的(assigned)，授权用户创建的(created)，包含前两者的(all)。默认: assigned
@@ -2488,6 +2679,7 @@ interface GetOrgsOrgIssues {
   org: string // 组织的路径(path/login)
 }
 
+// 获取一个组织的仓库
 interface GetOrgsOrgRepos {
   access_token?: string // 用户授权码
   org: string // 组织的路径(path/login)
@@ -2496,6 +2688,7 @@ interface GetOrgsOrgRepos {
   per_page?: number // 每页的数量，最大为 100
 }
 
+// 创建组织仓库
 interface PostOrgsOrgRepos {
   access_token?: string // 用户授权码
   name: string // 仓库名称
@@ -2513,18 +2706,21 @@ interface PostOrgsOrgRepos {
   path?: string // 仓库路径
 }
 
+// 移除授权用户所管理组织中的成员
 interface DeleteOrgsOrgMembershipsUsername {
   access_token?: string // 用户授权码
   org: string // 组织的路径(path/login)
   username: string // 用户名(username/login)
 }
 
+// 获取授权用户所属组织的一个成员
 interface GetOrgsOrgMembershipsUsername {
   access_token?: string // 用户授权码
   org: string // 组织的路径(path/login)
   username: string // 用户名(username/login)
 }
 
+// 增加或更新授权用户所管理组织的成员
 interface PutOrgsOrgMembershipsUsername {
   access_token?: string // 用户授权码
   org: string // 组织的路径(path/login)
@@ -2532,6 +2728,7 @@ interface PutOrgsOrgMembershipsUsername {
   role?: string // 设置用户在组织的角色
 }
 
+// 列出组织的公开动态
 interface GetOrgsOrgEvents {
   access_token?: string // 用户授权码
   org: string // 组织的路径(path/login)
@@ -2541,6 +2738,7 @@ interface GetOrgsOrgEvents {
   per_page?: number // 每页的数量，最大为 100(待废弃，建议使用滚动列表参数)
 }
 
+// 获取当前授权用户的所有Issues
 interface GetIssues {
   access_token?: string // 用户授权码
   filter?: string // 筛选参数: 授权用户负责的(assigned)，授权用户创建的(created)，包含前两者的(all)。默认: assigned
@@ -2557,6 +2755,7 @@ interface GetIssues {
   finished_at?: string // 任务完成时间，即任务最后一次转为已完成状态的时间点。格式同上
 }
 
+// 获取某个企业的所有Issues
 interface GetEnterprisesEnterpriseIssues {
   access_token?: string // 用户授权码
   enterprise: string // 企业的路径(path/login)
@@ -2577,17 +2776,20 @@ interface GetEnterprisesEnterpriseIssues {
   program?: string // 所属项目名称。none为没所属有项目的，*为所有带所属项目的
 }
 
+// 获取一个企业
 interface GetEnterprisesEnterprise {
   access_token?: string // 用户授权码
   enterprise: string // 企业的路径(path/login)
 }
 
+// 列出企业的所有成员
 interface GetEnterprisesEnterpriseMembers {
   access_token?: string // 用户授权码
   enterprise: string // 企业的路径(path/login)
   role?: string // 根据角色筛选成员
 }
 
+// 添加或邀请企业成员
 interface PostEnterprisesEnterpriseMembers {
   access_token?: string // 用户授权码
   enterprise: string // 企业的路径(path/login)
@@ -2597,6 +2799,7 @@ interface PostEnterprisesEnterpriseMembers {
   name?: string // 企业成员真实姓名（备注）
 }
 
+// 获取企业成员信息(通过用户名/邮箱)
 interface GetEnterprisesEnterpriseMembersSearch {
   access_token?: string // 用户授权码
   enterprise: string // 企业的路径(path/login)
@@ -2604,6 +2807,7 @@ interface GetEnterprisesEnterpriseMembersSearch {
   query_value: string // 查询值
 }
 
+// 某个周报评论列表
 interface GetEnterprisesEnterpriseWeekReportsIdComments {
   access_token?: string // 用户授权码
   enterprise: string // 企业的路径(path/login)
@@ -2612,6 +2816,7 @@ interface GetEnterprisesEnterpriseWeekReportsIdComments {
   id: number // 周报ID
 }
 
+// 评论周报
 interface PostEnterprisesEnterpriseWeekReportsIdComment {
   access_token?: string // 用户授权码
   enterprise: string // 企业的路径(path/login)
@@ -2619,6 +2824,7 @@ interface PostEnterprisesEnterpriseWeekReportsIdComment {
   body: string // 评论的内容
 }
 
+// 删除周报某个评论
 interface DeleteEnterprisesEnterpriseWeekReportsReportIdCommentsId {
   access_token?: string // 用户授权码
   enterprise: string // 企业的路径(path/login)
@@ -2626,6 +2832,7 @@ interface DeleteEnterprisesEnterpriseWeekReportsReportIdCommentsId {
   id: number // 评论ID
 }
 
+// 个人周报列表
 interface GetEnterprisesEnterpriseUsersUsernameWeekReports {
   access_token?: string // 用户授权码
   enterprise: string // 企业的路径(path/login)
@@ -2634,6 +2841,7 @@ interface GetEnterprisesEnterpriseUsersUsernameWeekReports {
   per_page?: number // 每页的数量，最大为 100
 }
 
+// 企业成员周报列表
 interface GetEnterprisesEnterpriseWeekReports {
   access_token?: string // 用户授权码
   enterprise: string // 企业的路径(path/login)
@@ -2645,12 +2853,14 @@ interface GetEnterprisesEnterpriseWeekReports {
   date?: string // 周报日期(格式：2019-03-25)
 }
 
+// 周报详情
 interface GetEnterprisesEnterpriseWeekReportsId {
   access_token?: string // 用户授权码
   enterprise: string // 企业的路径(path/login)
   id: number // 周报ID
 }
 
+// 编辑周报
 interface PatchEnterprisesEnterpriseWeekReportId {
   access_token?: string // 用户授权码
   enterprise: string // 企业的路径(path/login)
@@ -2658,6 +2868,7 @@ interface PatchEnterprisesEnterpriseWeekReportId {
   content: string // 周报内容
 }
 
+// 新建周报
 interface PostEnterprisesEnterpriseWeekReport {
   access_token?: string // 用户授权码
   enterprise: string // 企业的路径(path/login)
@@ -2667,12 +2878,14 @@ interface PostEnterprisesEnterpriseWeekReport {
   date?: string // 周报日期(格式：2019-03-25)
 }
 
+// 获取企业的某个Issue
 interface GetEnterprisesEnterpriseIssuesNumber {
   access_token?: string // 用户授权码
   enterprise: string // 企业的路径(path/login)
   number: string // Issue 编号(区分大小写，无需添加 # 号)
 }
 
+// 更新企业的某个Issue
 interface PatchEnterprisesEnterpriseIssuesNumber {
   access_token?: string // 用户授权码
   enterprise: string // 企业的路径(path/login)
@@ -2689,12 +2902,14 @@ interface PatchEnterprisesEnterpriseIssuesNumber {
   branch?: string // 分支名称，传空串表示取消关联分支
 }
 
+// 获取企业 issue 关联的 Pull Requests
 interface GetEnterprisesEnterpriseIssuesNumberPullRequests {
   access_token?: string // 用户授权码
   enterprise: string // 企业的路径(path/login)
   number: string // Issue 编号(区分大小写，无需添加 # 号)
 }
 
+// 获取企业某个Issue所有评论
 interface GetEnterprisesEnterpriseIssuesNumberComments {
   access_token?: string // 用户授权码
   enterprise: string // 企业的路径(path/login)
@@ -2703,6 +2918,7 @@ interface GetEnterprisesEnterpriseIssuesNumberComments {
   per_page?: number // 每页的数量，最大为 100
 }
 
+// 获取企业某个Issue所有标签
 interface GetEnterprisesEnterpriseIssuesNumberLabels {
   access_token?: string // 用户授权码
   enterprise: string // 企业的路径(path/login)
@@ -2711,17 +2927,20 @@ interface GetEnterprisesEnterpriseIssuesNumberLabels {
   per_page?: number // 每页的数量，最大为 100
 }
 
+// 获取企业所有标签
 interface GetEnterprisesEnterpriseLabels {
   access_token?: string // 用户授权码
   enterprise: string // 企业的路径(path/login)
 }
 
+// 获取企业某个标签
 interface GetEnterprisesEnterpriseLabelsName {
   access_token?: string // 用户授权码
   enterprise: string // 企业的路径(path/login)
   name: string // 标签名称
 }
 
+// 获取企业的所有仓库
 interface GetEnterprisesEnterpriseRepos {
   access_token?: string // 用户授权码
   enterprise: string // 企业的路径(path/login)
@@ -2731,6 +2950,7 @@ interface GetEnterprisesEnterpriseRepos {
   per_page?: number // 每页的数量，最大为 100
 }
 
+// 创建企业仓库
 interface PostEnterprisesEnterpriseRepos {
   access_token?: string // 用户授权码
   name: string // 仓库名称
@@ -2750,18 +2970,21 @@ interface PostEnterprisesEnterpriseRepos {
   members?: string // 用逗号分开的仓库成员。如: member1,member2
 }
 
+// 获取企业的一个成员
 interface GetEnterprisesEnterpriseMembersUsername {
   access_token?: string // 用户授权码
   enterprise: string // 企业的路径(path/login)
   username: string // 用户名(username/login)
 }
 
+// 移除企业成员
 interface DeleteEnterprisesEnterpriseMembersUsername {
   access_token?: string // 用户授权码
   enterprise: string // 企业的路径(path/login)
   username: string // 用户名(username/login)
 }
 
+// 修改企业成员权限或备注
 interface PutEnterprisesEnterpriseMembersUsername {
   access_token?: string // 用户授权码
   enterprise: string // 企业的路径(path/login)
@@ -2771,39 +2994,47 @@ interface PutEnterprisesEnterpriseMembersUsername {
   name?: string // 企业成员真实姓名（备注）
 }
 
+// 列出可使用的 .gitignore 模板
 interface GetGitignoreTemplates {
   access_token?: string // 用户授权码
 }
 
+// 获取一个 .gitignore 模板
 interface GetGitignoreTemplatesName {
   access_token?: string // 用户授权码
   name: string // .gitignore 模板名
 }
 
+// 获取一个 .gitignore 模板原始文件
 interface GetGitignoreTemplatesNameRaw {
   access_token?: string // 用户授权码
   name: string // .gitignore 模板名
 }
 
+// 列出可使用的开源许可协议
 interface GetLicenses {
   access_token?: string // 用户授权码
 }
 
+// 获取一个开源许可协议
 interface GetLicensesLicense {
   access_token?: string // 用户授权码
   license: string // 协议名称
 }
 
+// 获取一个开源许可协议原始文件
 interface GetLicensesLicenseRaw {
   access_token?: string // 用户授权码
   license: string // 协议名称
 }
 
+// 渲染 Markdown 文本
 interface PostMarkdown {
   access_token?: string // 用户授权码
   text: string // Markdown 文本
 }
 
+// 企业Pull Reuqest 列表
 interface GetEnterpriseEnterprisePullRequests {
   access_token?: string // 用户授权码
   enterprise: string // 企业的路径(path/login)
@@ -2821,6 +3052,7 @@ interface GetEnterpriseEnterprisePullRequests {
   per_page?: number // 每页的数量，最大为 100
 }
 
+// 列出仓库的所有公开动态
 interface GetNetworksOwnerRepoEvents {
   access_token?: string // 用户授权码
   owner?: string // 仓库所属空间地址(企业、组织或个人的地址path)
@@ -2831,6 +3063,7 @@ interface GetNetworksOwnerRepoEvents {
   per_page?: number // 每页的数量，最大为 100(待废弃，建议使用滚动列表参数)
 }
 
+// 搜索仓库
 interface GetSearchRepositories {
   access_token?: string // 用户授权码
   q: string // 搜索关键字
@@ -2843,6 +3076,7 @@ interface GetSearchRepositories {
   order?: string // 排序顺序: desc(default)、asc
 }
 
+// 搜索 Issues
 interface GetSearchIssues {
   access_token?: string // 用户授权码
   q: string // 搜索关键字
@@ -2858,6 +3092,7 @@ interface GetSearchIssues {
   order?: string // 排序顺序: desc(default)、asc
 }
 
+// 搜索用户
 interface GetSearchUsers {
   access_token?: string // 用户授权码
   q: string // 搜索关键字
@@ -2867,11 +3102,13 @@ interface GetSearchUsers {
   order?: string // 排序顺序: desc(default)、asc
 }
 
+// 获取授权用户的通知数
 interface GetNotificationsCount {
   access_token?: string // 用户授权码
   unread?: boolean // 是否只获取未读消息，默认：否
 }
 
+// 列出授权用户的所有通知
 interface GetNotificationsThreads {
   access_token?: string // 用户授权码
   unread?: boolean // 是否只获取未读消息，默认：否
@@ -2884,21 +3121,25 @@ interface GetNotificationsThreads {
   per_page?: number // 每页的数量，最大为 100
 }
 
+// 标记所有通知为已读
 interface PutNotificationsThreads {
   access_token?: string // 用户授权码
   ids?: string // 指定一组通知 ID，以 , 分隔
 }
 
+// 获取一条通知
 interface GetNotificationsThreadsId {
   access_token?: string // 用户授权码
   id: string // 通知的 ID
 }
 
+// 标记一条通知为已读
 interface PatchNotificationsThreadsId {
   access_token?: string // 用户授权码
   id: string // 通知的 ID
 }
 
+// 列出授权用户的所有私信
 interface GetNotificationsMessages {
   access_token?: string // 用户授权码
   unread?: boolean // 是否只显示未读私信，默认：否
@@ -2909,31 +3150,37 @@ interface GetNotificationsMessages {
   per_page?: number // 每页的数量，最大为 100
 }
 
+// 标记所有私信为已读
 interface PutNotificationsMessages {
   access_token?: string // 用户授权码
   ids?: string // 指定一组私信 ID，以 , 分隔
 }
 
+// 发送私信给指定用户
 interface PostNotificationsMessages {
   access_token?: string // 用户授权码
   username: string // 用户名(username/login)
   content: string // 私信内容
 }
 
+// 获取一条私信
 interface GetNotificationsMessagesId {
   access_token?: string // 用户授权码
   id: string // 私信的 ID
 }
 
+// 标记一条私信为已读
 interface PatchNotificationsMessagesId {
   access_token?: string // 用户授权码
   id: string // 私信的 ID
 }
 
+// 获取授权用户的全部邮箱
 interface GetEmails {
   access_token?: string // 用户授权码
 }
 
+// 列出可使用的 Emoji
 interface GetEmojis {
   access_token?: string // 用户授权码
 }
