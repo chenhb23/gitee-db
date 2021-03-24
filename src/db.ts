@@ -187,7 +187,7 @@ export class Table<TB = any> {
       count = hasFilter ? this.props.comments : Math.min(this.props.comments, options.limit)
     }
 
-    // 在并发一次的情况下，尽量拉满线程
+    // 在只需并发一次的情况下，尽量拉满线程
     const per_page = Math.min(this.MAX_PER_PAGE, Math.max(this.DEFAULT_PER_PAGE, count / this.MAX_THREAD))
     // 并发线程数
     const thread = Math.min(this.MAX_THREAD, Math.ceil(count / per_page))
